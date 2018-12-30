@@ -6,37 +6,47 @@
         <title>Webpage with Style</title>
         
         <style type="text/css">
-            
-            /* full stop / class selector */
-            
+                    
             .grey {
                 color: grey;
                 text-decoration: underline;
             }
             
-            .clear-float {
-                clear: both;
-            }
-            
-            /* IDs (use only once per page) */
             #first-section {
                 color: blue;
                 background-color: peachpuff;
                 width: 200px;
-                float: right;
+                position: relative;
+                left: 100px;
+                top: 100px;
+                z-index: 1;
             }
             
             #second-section {
                 background-color: #CAEFE9;
                 width: 200px;
-                float: left;
+                position: relative;
+                z-index: 2;
+                opacity: 0.7;
+                height: 5000px;
+            }
+            
+            #absolute-section {
+                /* takes out of page flow - put on top */
+                position: absolute;
             }
         
+            #fixed-section {
+                position: fixed;
+            }
+            
         </style>
         
     </head>
     
     <body>
+        
+        <p id="fixed-section">This is a paragraph with fixed placement.</p>
         
         <div id="first-section">
             <p>The quick brown fox jumped over the lazy dog.</p>
@@ -44,17 +54,16 @@
             <p>This is boring text. <span class="grey">You wasted your time reading this.</span></p>
         </div>        
         
+        <p id="absolute-section">This is a paragraph with absolute placement.</p>
+
+        
         <div id="second-section">
             <p>Wow, I love internal CSS.</p>
 
             <h1>CSS is cool!</h1>
         </div>
         
-        <p>This is not a floating paragraph.</p>
         
-        <div class="clear-float">
-            <p>This is cleared paragraph.</p>
-        </div>
         
     </body>
     
