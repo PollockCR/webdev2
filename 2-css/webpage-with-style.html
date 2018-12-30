@@ -7,13 +7,23 @@
         
         <style type="text/css">
             
-            p {
-                color: gold;
+            /* full stop / class selector */
+            .red {
+                color: red;
+            }
+            
+            .large {
                 font-size: 200%;
             }
             
-            h1 {
-                color: pink;
+            .grey {
+                color: grey;
+                text-decoration: underline;
+            }
+            
+            /* IDs (use only once per page) */
+            #green {
+                color: green;
             }
         
         </style>
@@ -22,11 +32,13 @@
     
     <body>
         
-        <h1>CSS is cool!</h1>
+        <h1 class="red large">CSS is cool!</h1>
         
-        <p>The quick brown fox jumped over the lazy dog.</p>
+        <p class="red">The quick brown fox jumped over the lazy dog.</p>
         
-        <p>Wow, I love internal CSS.</p>
+        <p id="green">This is boring text. <span class="grey">You wasted your time reading this.</span></p>
+        
+        <p class="large">Wow, I love internal CSS.</p>
         
     </body>
     
