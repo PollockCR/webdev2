@@ -14,15 +14,22 @@
                 text-decoration: underline;
             }
             
+            .clear-float {
+                clear: both;
+            }
+            
             /* IDs (use only once per page) */
             #first-section {
                 color: blue;
                 background-color: peachpuff;
-                width: 50%;
+                width: 200px;
+                float: right;
             }
             
             #second-section {
                 background-color: #CAEFE9;
+                width: 200px;
+                float: left;
             }
         
         </style>
@@ -41,6 +48,12 @@
             <p>Wow, I love internal CSS.</p>
 
             <h1>CSS is cool!</h1>
+        </div>
+        
+        <p>This is not a floating paragraph.</p>
+        
+        <div class="clear-float">
+            <p>This is cleared paragraph.</p>
         </div>
         
     </body>
