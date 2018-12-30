@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html>
-    
+
     <head>
-        
+
         <title>Webpage with Style</title>
-        
+
         <style type="text/css">
-                    
-            .grey {
-                color: grey;
-                text-decoration: underline;
+            .square {
+                width: 100px;
+                height: 100px;
+                margin: 40px;
+                float: left;
+                color: white;
             }
-            
-            #first-section {
-                color: blue;
-                background-color: peachpuff;
-                width: 200px;
-                position: relative;
-                margin: 100px 50px 20px 10px;
+
+            .red {
+                background-color: red;
+                border: 10px black solid;
             }
-            
-            #second-section {
-                background-color: #CAEFE9;
-                width: 200px;
-                position: relative;
-                margin-left: 50px 20px;
-                padding: 5px 50px 30px 15px;
+
+            .blue {
+                background-color: blue;
+                border-style: dashed dotted double ridge;
+                border-color: orange orangered orchid olivedrab;
+                border-width: 11px 22px 33px 44px;
             }
-            
-            body {
-                /* another option to fix browser defaults: CSS reset */
-                margin: 0px;
-                padding: 0px;
+
+            .green {
+                background-color: green;
+                border-radius: 50px;
             }
-            
+
         </style>
-        
+
     </head>
-    
+
     <body>
-                
-        <div id="first-section">
-            <p>The quick brown falafel jumped over the lazy doughnut.</p>
 
-            <p>This text belongs to rice. <span class="grey">Leave the rice alone!</span></p>
-        </div>        
-        
-        <div id="second-section">
-            <p>Wow, I love milkshakes.</p>
-
-            <h1>Corn is cool!</h1>
+        <div class="red square">
+            This is a red square.
         </div>
-        
-        
-        
+
+        <div class="blue square">
+            This is a blue square.
+        </div>
+
+        <div class="green square">
+            This is a green square.
+        </div>
+
+
     </body>
-    
+
 </html>
