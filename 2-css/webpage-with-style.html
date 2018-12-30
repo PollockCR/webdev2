@@ -7,21 +7,17 @@
         
         <style type="text/css">
             
-            .right {
-                text-align: right;
+            .no-underline {
+                text-decoration: none;
             }
             
-            .centered {
-                text-align: center;
+            .no-underline:hover {
+                text-decoration: underline;
             }
-            
-            .justified {
-                text-align: justify;
-            }
-            
-            div {
-                width: 500px;
-                background-color: lightcyan;
+
+            /* psuedo classes */
+            a:visited {
+                color:rebeccapurple;
             }
             
         </style>
@@ -31,17 +27,10 @@
 
     <body>
         
-        <div>
+        <p><a class="no-underline" href="http://www.google.com">This is a link to Google that underlines when hovered over.</a></p>
+        
+        <p><a href="http://www.google.com" target="_blank">This is a link to Google that opens in a new tab.</a></p>
 
-            <p class="right">This text is aligned to the right of the parent element. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non neque scelerisque odio maximus rutrum ut eget mi. Praesent dolor risus, semper non ante in, tristique viverra nunc. Curabitur eu efficitur mi. Vestibulum commodo mauris ac varius suscipit. Mauris luctus tempor vehicula. Sed rhoncus, nibh ac molestie scelerisque, ligula orci vulputate risus, id porttitor tortor massa commodo dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-            <p class="centered">This text is aligned in the center of the parent element. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non neque scelerisque odio maximus rutrum ut eget mi. Praesent dolor risus, semper non ante in, tristique viverra nunc. Curabitur eu efficitur mi. Vestibulum commodo mauris ac varius suscipit. Mauris luctus tempor vehicula. Sed rhoncus, nibh ac molestie scelerisque, ligula orci vulputate risus, id porttitor tortor massa commodo dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-            <p>This text is aligned to the left of the parent element. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non neque scelerisque odio maximus rutrum ut eget mi. Praesent dolor risus, semper non ante in, tristique viverra nunc. Curabitur eu efficitur mi. Vestibulum commodo mauris ac varius suscipit. Mauris luctus tempor vehicula. Sed rhoncus, nibh ac molestie scelerisque, ligula orci vulputate risus, id porttitor tortor massa commodo dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-            <p class="justified">This is justified text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non neque scelerisque odio maximus rutrum ut eget mi. Praesent dolor risus, semper non ante in, tristique viverra nunc. Curabitur eu efficitur mi. Vestibulum commodo mauris ac varius suscipit. Mauris luctus tempor vehicula. Sed rhoncus, nibh ac molestie scelerisque, ligula orci vulputate risus, id porttitor tortor massa commodo dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-            
-        </div>
 
     </body>
 
