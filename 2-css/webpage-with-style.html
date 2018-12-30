@@ -5,20 +5,48 @@
 
         <title>Webpage with Style</title>
         
-        <link href="https://fonts.googleapis.com/css?family=Thasadith" rel="stylesheet">
-
         <style type="text/css">
-            /* Use web safe fonts or Google fonts */
-            p {
-                font-family: 'Thasadith', sans-serif;
+            
+            .bold {
+                font-weight: bold;
             }
+            
+            .italic {
+                font-style: italic;
+            }
+            
+            .underline {
+                text-decoration: underline;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+                color: green;
+            }
+            
+            .big {
+                font-size: 200%;
+            }
+            
         </style>
 
     </head>
 
     <body>
 
-        <p>I like to dance with wolves.</p>
+        <p class="bold">This is bold text.</p>
+        
+        <p class="italic">This is italic text. <span class="bold">This is bold and italic text.</span></p>
+
+        <p class="underline">This text is underlined.</p>
+        
+        <a href="">This is a link that is not underlined, but will be underlined when hovered over.</a>
+        
+        <p class="big">This text is big.</p>
 
     </body>
 
