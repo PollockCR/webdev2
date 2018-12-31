@@ -8,7 +8,6 @@
         <style type="text/css">
             
             #bbc-banner {
-                padding: 0px 155px 0px 155px;
                 height:42px;
                 background-color: white;
             }
@@ -29,12 +28,11 @@
             .bbc-menu-item {
                 padding: 12px 12px 12px 12px;
                 vertical-align: middle;
-                border-right: 1px lightgrey solid;
+                border-right: 1px #CCCCCC solid;
                 float: left;                
                 font-weight: bold;
                 font-size: 14px;
             }
-            
             
             .sign-in {
                 padding: 9px 90px 9px 12px;
@@ -87,14 +85,14 @@
             
             #news-banner {
                 background-color: #BF141F;
-                padding: 8px 155px 8px 155px;
+                padding-top: 10px;
+                padding-bottom: 10px;
                 font-family: Arial, Helvetica, sans-serif;
                 color: white;
                 font-size: 220%;
             }
             
             #news-menu {
-                padding: 0px 155px 0px 155px;
                 background-color: #AD131C;
                 height: 39px;
             }
@@ -123,6 +121,7 @@
                 font-weight: bold;
                 font-size: 12px;
                 color: #505050;
+                line-height: 2em;
             }
             
             .ad-text:hover{
@@ -130,7 +129,8 @@
             }
             
             .container {
-                padding: 5px 155px 5px 155px;
+                width: 970px;
+                margin: 0 auto;
             }
             
             .story-container {
@@ -168,7 +168,7 @@
                 text-decoration: underline;
             }
             
-            p {
+            .content {
                 font-family: Arial, Helvetica, sans-serif;
                 font-size: 14px;
             }
@@ -192,6 +192,7 @@
                 float: left;
                 margin: 10px;
             }
+    
         </style>     
 
     </head>
@@ -200,47 +201,59 @@
         
         <div id="bbc-banner">
             
-            <div class="bbc-logo-letter">B</div> 
-            <div class="bbc-logo-letter">B</div> 
-            <div class="bbc-logo-letter">C</div>  
-
-            <div class="bbc-menu-item sign-in"><a class="black-text" href="https://www.bbc.com/signin"><img id="login-icon" src="login-icon.png" height="20px">&nbsp;&nbsp;Sign in</a></div>
-            <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/news">News</a></div>
-            <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/sport">Sport</a></div>
-            <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/weather">Weather</a></div>
-            <div class="bbc-menu-item"><a class="black-text" href="https://shop.bbc.com/">Shop</a></div>
-            <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/reel/">Reel</a></div>
-            <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/travel/">Travel</a></div>
-            <div class="bbc-menu-item" id="more"><a class="black-text" href="https://www.bbc.com/">More</a></div>
+            <div class="container">
             
-            <div id="search">
-                <form><input type="search" placeholder="Search">&nbsp;<a href="" class="text-icon">&#x1F50D;</a></form>
+                <div class="bbc-logo-letter">B</div> 
+                <div class="bbc-logo-letter">B</div> 
+                <div class="bbc-logo-letter">C</div>  
+
+                <div class="bbc-menu-item sign-in"><a class="black-text" href="https://www.bbc.com/signin"><img id="login-icon" src="login-icon.png" height="20px">&nbsp;&nbsp;Sign in</a></div>
+                <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/news">News</a></div>
+                <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/sport">Sport</a></div>
+                <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/weather">Weather</a></div>
+                <div class="bbc-menu-item"><a class="black-text" href="https://shop.bbc.com/">Shop</a></div>
+                <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/reel/">Reel</a></div>
+                <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/travel/">Travel</a></div>
+                <div class="bbc-menu-item" id="more"><a class="black-text" href="https://www.bbc.com/">More</a></div>
+
+                <div id="search">
+                    <form><input type="search" placeholder="Search">&nbsp;<a href="" class="text-icon">&#x1F50D;</a></form>
+                </div>
+                
             </div>
 
         </div>
         
-        <div id="news-banner">NEWS</div>
+        <div id="news-banner">
+            
+            <div class="container">NEWS</div>
+            
+        </div>
         
         <div id="news-menu">
             
-            <div class="news-menu-item" style="padding-left: 0px"><a class="white-text" href="https://www.bbc.com/news">Home</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/video_and_audio/headlines">Video</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/world">World</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/world/us_and_canada">US &amp; Canada</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/uk">UK</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/business">Business</a></div>
-            <div class="news-menu-item" style="border-bottom: 4px white solid; padding-bottom: 7px"><a class="white-text" href="https://www.bbc.com/news/technology">Tech</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/science_and_environment">Science</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/stories">Stories</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/entertainment_and_arts">Entertainment &amp; Arts</a></div>
-            <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/health">Health</a></div>
-            <div class="news-menu-item" style="border-right: 0px"><a class="white-text" href="https://www.bbc.com">More</a></div>
+            <div class="container">
+            
+                <div class="news-menu-item" style="padding-left: 0px"><a class="white-text" href="https://www.bbc.com/news">Home</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/video_and_audio/headlines">Video</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/world">World</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/world/us_and_canada">US &amp; Canada</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/uk">UK</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/business">Business</a></div>
+                <div class="news-menu-item" style="border-bottom: 4px white solid; padding-bottom: 7px"><a class="white-text" href="https://www.bbc.com/news/technology">Tech</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/science_and_environment">Science</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/stories">Stories</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/entertainment_and_arts">Entertainment &amp; Arts</a></div>
+                <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/health">Health</a></div>
+                <div class="news-menu-item" style="border-right: 0px"><a class="white-text" href="https://www.bbc.com">More</a></div>
+                
+            </div>
             
         </div>
 
         <div class="ad container">
             
-            <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a><br>
+            <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a>
             <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html"><img src="sas-ad-wide.jpg"></a>
             
         </div>
@@ -255,14 +268,14 @@
 
                 <div class="story-info">
 
-                    <p class="story-summary">From fake porn to Facebook scandals, security alerts to Google protests - 2018 was a busy year.</p>
-                    <p><span class="text-icon">&#x1F550;</span> 30 December 2018 | <a class="category-tag" href="https://www.bbc.com/news/technology">Technology</a></p>
+                    <p class="content story-summary">From fake porn to Facebook scandals, security alerts to Google protests - 2018 was a busy year.</p>
+                    <p class="content"><span class="text-icon">&#x1F550;</span> 30 December 2018 | <a class="category-tag" href="https://www.bbc.com/news/technology">Technology</a></p>
 
                     <div class="small-seperator"></div>
 
-                    <p>Facebook-Cambridge Analytica data breach</p>
+                    <p class="content">Facebook-Cambridge Analytica data breach</p>
 
-                    <p>Ten big science stories of 2018</p>
+                    <p class="content">Ten big science stories of 2018</p>
 
                 </div>
 
@@ -273,7 +286,7 @@
             </div>
             
             <div class="ad">
-                <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a><br>
+                <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a>
                 <img src="sas-ad-thin.jpg">
             </div>
             
