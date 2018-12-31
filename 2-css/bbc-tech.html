@@ -117,13 +117,12 @@
             
             .ad{
                 text-align: right;
-                color: grey;
-                padding: 5px 150px 5px 150px;
             }
             
             .ad-text {
                 font-weight: bold;
                 font-size: 12px;
+                color: #505050;
             }
             
             .ad-text:hover{
@@ -131,16 +130,22 @@
             }
             
             .container {
-                padding: 10px 155px 10px 155px;
+                padding: 5px 155px 5px 155px;
+            }
+            
+            .story-container {
+                float: left;
+                width: 67%;
+                margin-right: 15px;
             }
             
             #category {
                 font-size: 20px;
-                color: black;
+                color: #505050;
                 border-bottom: 3px #BF141F solid;
                 font-family: Arial, Helvetica, sans-serif;
                 width: 100px;
-                margin-bottom: 20px;
+                margin: 10px 0px 20px 0px;
             }
             
             .category-tag {
@@ -155,7 +160,7 @@
                 font-family: Arial, Helvetica, sans-serif;
                 font-size: 30px;
                 font-weight: bold;
-                color: dimgray;
+                color: #222222;
                 padding-bottom: 30px;
             }
             
@@ -180,11 +185,12 @@
             
             .story-info {
                 float: left;
-                width: 24%;
+                width: 35%;
             }
             
             .story-img {
                 float: left;
+                margin: 10px;
             }
         </style>     
 
@@ -232,9 +238,9 @@
             
         </div>
 
-        <div class="ad">
+        <div class="ad container">
             
-            <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a>
+            <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a><br>
             <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html"><img src="sas-ad-wide.jpg"></a>
             
         </div>
@@ -243,23 +249,36 @@
             
             <div id="category">Technology</div>
             
-            <div><a class="headline" href="https://www.bbc.com/news/technology-46636552">2018: Chasing up tech's biggest stories</a></div>
+            <div class="story-container">
             
-            <div class="story-info">
-                
-                <p class="story-summary">From fake porn to Facebook scandals, security alerts to Google protests - 2018 was a busy year.</p>
-                <p><span class="text-icon">&#x1F550;</span> 30 December 2018 | <a class="category-tag" href="https://www.bbc.com/news/technology">Technology</a></p>
+                <div><a class="headline" href="https://www.bbc.com/news/technology-46636552">2018: Chasing up tech's biggest stories</a></div>
 
-                <div class="small-seperator"></div>
+                <div class="story-info">
+
+                    <p class="story-summary">From fake porn to Facebook scandals, security alerts to Google protests - 2018 was a busy year.</p>
+                    <p><span class="text-icon">&#x1F550;</span> 30 December 2018 | <a class="category-tag" href="https://www.bbc.com/news/technology">Technology</a></p>
+
+                    <div class="small-seperator"></div>
+
+                    <p>Facebook-Cambridge Analytica data breach</p>
+
+                    <p>Ten big science stories of 2018</p>
+
+                </div>
+
+                <div class="story-img"><img src="techstory.jpg" width="400px"></div>
                 
-                <p>Facebook-Cambridge Analytica data breach</p>
-                
-                <p>Ten big science stories of 2018</p>
+                <hr>
                 
             </div>
             
-            <img class="story-img" src="techstory.jpg">
+            <div class="ad">
+                <a href="https://www.sas.com/en_us/whitepapers/non-geek-a-to-z-guide-to-internet-of-things-108846.html" class="ad-text">ADVERTISEMENT</a><br>
+                <img src="sas-ad-thin.jpg">
+            </div>
+            
         </div>
+        
     </body>
 
 </html>
