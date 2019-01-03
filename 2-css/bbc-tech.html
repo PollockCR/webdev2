@@ -64,17 +64,23 @@
             }
             
             #more {
-                padding-right: 90px;
             }
             
             #search {
                 vertical-align: middle;
-                padding: 10px;
+                padding: 7px 0px 0px 7px;
                 float: left;
             }
             
-            .text-icon {
-                font-size: 70%;
+            #search-img {
+                height: 25px;
+                vertical-align: middle;
+            }
+            
+            .arrow {
+                height: 10px;
+                position: relative;
+                padding-left: 50px;
             }
             
             #news-banner {
@@ -172,6 +178,10 @@
                 color: dimgray;
             }
             
+            .clock {
+                height: 12px;
+            }
+            
             .small-seperator {
                 width: 50px;
                 border-bottom: 1px #BF141F solid;
@@ -210,10 +220,10 @@
                 <div class="bbc-menu-item"><a class="black-text" href="https://shop.bbc.com/">Shop</a></div>
                 <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/reel/">Reel</a></div>
                 <div class="bbc-menu-item"><a class="black-text" href="https://www.bbc.com/travel/">Travel</a></div>
-                <div class="bbc-menu-item" id="more"><a class="black-text" href="https://www.bbc.com/">More</a></div>
+                <div class="bbc-menu-item" id="more"><a class="black-text" href="https://www.bbc.com/">More<img class="arrow" src="images/dropdownarrow.svg"></a></div>
 
                 <div id="search">
-                    <form><input type="search" placeholder="Search">&nbsp;<a href="" class="text-icon">&#x1F50D;</a></form>
+                    <img id="search-img" src="images/search.png">
                 </div>
                 
             </div>
@@ -245,7 +255,7 @@
                 <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/stories">Stories</a></div>
                 <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/entertainment_and_arts">Entertainment &amp; Arts</a></div>
                 <div class="news-menu-item"><a class="white-text" href="https://www.bbc.com/news/health">Health</a></div>
-                <div class="news-menu-item" style="border-right: 0px"><a class="white-text" href="https://www.bbc.com">More</a></div>
+                <div class="news-menu-item" style="border-right: 0px"><a class="white-text" href="https://www.bbc.com">More<img class="arrow" src="images/whitedropdownarrow.png"></a></div>
                 
             </div>
             
@@ -273,7 +283,7 @@
                 <div class="story-info">
 
                     <p class="content story-summary">From fake porn to Facebook scandals, security alerts to Google protests - 2018 was a busy year.</p>
-                    <p class="content"><span class="text-icon">&#x1F550;</span> 30 December 2018 | <a class="category-tag" href="https://www.bbc.com/news/technology">Technology</a></p>
+                    <p class="content"><img class="clock" src="images/clock.png"> 30 December 2018 | <a class="category-tag" href="https://www.bbc.com/news/technology">Technology</a></p>
 
                     <div class="small-seperator"></div>
 
