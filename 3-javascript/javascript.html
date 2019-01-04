@@ -21,12 +21,20 @@
         <p id="blankParagraph"></p>
         
         <button id="createParagraph">Create text</button>
-            
+        
+        <p id="moreText">This is some text</p>
+        
+        <button id="styleText">Style text</button>
+        
+        <p id="disappearingText">Here is some more text</p>
+        
+        <button id="removeText">Remove text</button>
+                    
         <script type="text/javascript">
         
             document.getElementById("myButton").onclick = function() {
                 
-                document.getElementById("text").innerHTML = "Hello Cat!";
+               document.getElementById("text").innerHTML = "Hello Cat!";
                 
             }
 
@@ -37,7 +45,21 @@
             
             document.getElementById("createParagraph").onclick = function() {
                 
-                document.getElementById("blankParagraph").innerHTML = "Wow, magic text!";
+               document.getElementById("blankParagraph").innerHTML = "Wow, magic text!";
+            }
+            
+            document.getElementById("styleText").onclick = function() {
+                
+               document.getElementById("moreText").style.color = "red";    
+               document.getElementById("moreText").style.fontSize = "20px";
+                
+            }
+            
+            document.getElementById("removeText").onclick = function() {
+               document.getElementById("disappearingText").style.display = "none";
+               
+               document.getElementById("removeText").style.display = "none";
+                
             }
             
         </script>
