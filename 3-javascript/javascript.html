@@ -11,20 +11,37 @@
     <body>
         
         <p id="text">Hello world!</p>
+                
+        <button id="myButton">Change text</button>
+        
+        <p id="secondParagraph">Javascript is ...</p>
+        
+        <button id="secondButton">Append text</button>
+        
+        <p id="blankParagraph"></p>
+        
+        <button id="createParagraph">Create text</button>
             
         <script type="text/javascript">
-            
-            // This is a oneline comment
-            
-            /*
-                This is a
-                multiline comment
-            */
         
-            document.getElementById("text").innerHTML = "Hello Cat!";
+            document.getElementById("myButton").onclick = function() {
+                
+                document.getElementById("text").innerHTML = "Hello Cat!";
+                
+            }
+
+            document.getElementById("secondButton").onclick = function() {
+               document.getElementById("secondParagraph").innerHTML = "I think " + document.getElementById("secondParagraph").innerHTML + " awesome!";
+                
+            }
+            
+            document.getElementById("createParagraph").onclick = function() {
+                
+                document.getElementById("blankParagraph").innerHTML = "Wow, magic text!";
+            }
             
         </script>
-    
+        
     </body>
 
 </html>
