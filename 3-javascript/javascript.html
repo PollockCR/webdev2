@@ -12,33 +12,25 @@
 
     <body>
         
-        <div id="red-circle" class="circle"></div>
+        <input type="text" id="userInput">
+
+        <button id="changeText">Change text</button>
         
-        <div id="blue-circle" class="circle"></div>
-        
-        <div id="green-circle" class="circle"></div>
+        <p id="myText">This is some text</p>
 
     </body>
     
     <script>
     
-        document.getElementById("red-circle").onclick = function() {
+        document.getElementById("changeText").onclick = function() {
             
-            document.getElementById("red-circle").style.display = "none";    
+            var textEntered = "";
             
-        }
-        
-        document.getElementById("blue-circle").onclick = function() {
+            textEntered = document.getElementById("userInput").value;
             
-            document.getElementById("blue-circle").style.display = "none";    
+            document.getElementById("myText").innerHTML = textEntered;
             
         }
-
-        document.getElementById("green-circle").onclick = function() {
-            
-            document.getElementById("green-circle").style.display = "none";    
-            
-        }                
     
     </script>
 
