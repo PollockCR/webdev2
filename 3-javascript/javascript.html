@@ -12,43 +12,23 @@
 
     <body>
         
-        <p>How many fingers am I holding up?</p>
-        
-        <form>
-        
-            <input id="numberEntered" type="number">
-
-            <button id="submitButton">Submit</button>
-
-        </form>
+        <div id="myTweets"></div>
 
     </body>
     
     <script>
         
-       document.getElementById("submitButton").onclick = function() {
+        var tweetString = "";
+        
+        var tweets = ["I love hot sauce", "My milkshake brings all the boys to the yard", "Let's party!"];
+        
+        for (var i = 0; i < tweets.length; i++){
             
-            var numberEntered = document.getElementById("numberEntered").value;
-            
-            var fingers = getRandomInt(6);
-            
-            if(fingers == numberEntered){
-                
-                alert("Correct! I am holding up " + fingers + " fingers.");
-                
-            } else {
-
-                alert("Incorrect. I am holding up " + fingers + " fingers.");
-            
-            }
+             tweetString += "<p>" + tweets[i] + "</p>";
             
         }
-       
-       function getRandomInt(max) {
-           
-           return Math.floor(Math.random() * Math.floor(max));
-       
-       }
+        
+        document.getElementById("myTweets").innerHTML = tweetString;
     
     </script>
 
