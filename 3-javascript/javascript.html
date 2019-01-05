@@ -12,13 +12,13 @@
 
     <body>
         
-        <p>What is the magic word?</p>
+        <p>How many fingers am I holding up?</p>
         
         <form>
         
-            <input id="wordEntered" type="text">
+            <input id="numberEntered" type="number">
 
-            <button id="submitWord">Submit</button>
+            <button id="submitButton">Submit</button>
 
         </form>
 
@@ -26,23 +26,29 @@
     
     <script>
         
-        document.getElementById("submitWord").onclick = function() {
+       document.getElementById("submitButton").onclick = function() {
             
-            var wordEntered = document.getElementById("wordEntered").value;
+            var numberEntered = document.getElementById("numberEntered").value;
             
-            var magicWord = "spider";
-         
-            if (wordEntered == magicWord) {
+            var fingers = getRandomInt(6);
+            
+            if(fingers == numberEntered){
                 
-                alert(magicWord + " is the magic word!");
+                alert("Correct! I am holding up " + fingers + " fingers.");
                 
             } else {
-                
-                alert("Incorrect. Try again.");
-                
+
+                alert("Incorrect. I am holding up " + fingers + " fingers.");
+            
             }
             
         }
+       
+       function getRandomInt(max) {
+           
+           return Math.floor(Math.random() * Math.floor(max));
+       
+       }
     
     </script>
 
