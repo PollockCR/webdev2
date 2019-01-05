@@ -12,24 +12,51 @@
 
     <body>
         
-        <div id="myTweets"></div>
+        <p>How many fingers are you holding up?</p>
+        
+        <form>
+        
+            <select id="myFingers"></select>
+            <button id="submitButton">Submit</button>
+            
+        </form>
 
     </body>
     
     <script>
         
-        var tweetString = "";
-        
-        var tweets = ["I love hot sauce", "My milkshake brings all the boys to the yard", "Let's party!"];
-        
-        for (var i = 0; i < tweets.length; i++){
+        for(var i = 0; i < 6; i++){
             
-             tweetString += "<p>" + tweets[i] + "</p>";
+            document.getElementById("myFingers").innerHTML += "<option>" + i + "</option>";
             
         }
         
-        document.getElementById("myTweets").innerHTML = tweetString;
-    
+        document.getElementById("submitButton").onclick = function() {
+            
+            var fingers = document.getElementById("myFingers").value;
+            
+            var guess = getRandom(6);
+            
+            var count = 1;
+            
+            while (guess != fingers) {
+                
+                count++;
+                
+                var guess = getRandom(6);
+                
+            }
+            
+            alert("Got it! " + guess + " fingers. It took me " + count + " guesses.");
+            
+        }
+            
+        function getRandom (max) {
+            
+            return Math.floor(Math.random() * Math.floor(max));
+            
+        }
+        
     </script>
 
 </html>
