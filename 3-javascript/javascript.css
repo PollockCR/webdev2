@@ -3,3 +3,17 @@
     position: relative;
     
 }
+
+#shape-box {
+    
+    height: 65vh;
+    
+}
+
+#text-box {
+    
+    height: 20vh;
+    font-family: 'Tajawal', sans-serif;
+
+    
+}

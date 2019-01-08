@@ -7,26 +7,25 @@
         <title>How quick are you?</title>
         
         <link rel="stylesheet" type="text/css" href="javascript.css">
+        <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
 
     </head>
 
     <body>
         
-        <div style="height: 20vh">
+        <div id="text-box">
 
             <h1>How quick are you?</h1>
 
             <p>See how fast you react! Click on the shape as quickly as you can.</p>
 
-            <p id="timer">Your time: </p>
-
-            <p id="bestTime">Your best time is: </p>
+            <p>Your time: <span id="timer">&infin;</span>s | Your best time is: <span id="bestTime">&infin;</span>s</p>
 
             <p id="wait"></p>
             
         </div>
         
-        <div style="height: 65vh">
+        <div id="shape-box">
             <div id="shape"></div>
         </div>
 
@@ -60,7 +59,7 @@
             
             var diffTime = (endTime - startTime) / 1000;
             
-            document.getElementById("timer").innerHTML = "Your time: " + diffTime + " seconds";
+            document.getElementById("timer").innerHTML = diffTime;
             
             if (diffTime < bestTime) {
                 
@@ -68,7 +67,7 @@
             
             }
             
-            document.getElementById("bestTime").innerHTML = "Your best time: " + bestTime + " seconds";            
+            document.getElementById("bestTime").innerHTML = bestTime;            
             
         }
         
