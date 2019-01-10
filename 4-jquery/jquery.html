@@ -11,41 +11,58 @@
     </head>
     
     <body>
-        
-        <div id="green" class="circle"></div>
-        
-        <p>This is some text.</p>
-        
-        <div id="red" class="circle"></div>
             
         <div id="blue" class="circle"></div>
         
-        <iframe id="myBlog" title="Inline Frame Example" width="900px" height="600px" src="http://www.memoirsofatilde.wordpress.com">
-        </iframe>
+        <div id="green" class="circle"></div>
+        
+        <div id="red" class="circle"></div>
         
         <script type="text/javascript">
+            
+            var originalColor;
         
-        $("#green").click(function () {
+            $(".circle").hover(
+                
+                function () {
+                    originalColor = $(this).css("background-color");
+                    $(this).css("background-color", "pink");
+                    
+                },
+                function () {
+                    $(this).css("background-color", originalColor);
+                }
             
-            $("p").html("This text has changed.");
-            
-        });
-            
-        $("#red").click(function () {
-            
-            alert($("p").html());
-            
-        });  
+            );
         
-        $("#blue").hover(function () {
+            $("#blue").click(function () {
+
+                disappear("#blue");
+                
+            });
             
-            $("#myBlog").attr("src", "https://www.thaicookingclasschiangrai.com/main-dish-recipes");
-            
-        });
-            
-            
+            $("#green").click(function () {
+                
+                disappear("#green");
+                
+                alert($("#green").css("background-color"));
+                
+            });
         
-        
+            $("#red").click(function () {
+                
+                disappear("#red");
+                
+                alert("The width of this page is " + $("body").css("width"));
+                
+            });
+            
+            function disappear(shape){
+                
+                $(shape).hide();
+                
+            };
+
         </script>
     
     </body>
