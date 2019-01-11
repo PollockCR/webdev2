@@ -13,56 +13,42 @@
     <body>
             
         <div id="blue" class="circle"></div>
+                
+        <p id="fadingText">This is a <a href="http://api.jquery.com/fadeOut/">link</a> to learn more about the jQuery .fadeOut() function...</p>
         
-        <div id="green" class="circle"></div>
+        <button id="clickMe">Click me!</button>
         
-        <div id="red" class="circle"></div>
+        <p id="princess">There once was a pretty princess named Penelope. Penelope prefers to pick pink flowers each afternoon. She places the flowers in a pot and presents them to her prudent parents.</p>
+        
+        <button id="princessButton">Toggle trivial text!</button>
         
         <script type="text/javascript">
             
-            var originalColor;
-        
-            $(".circle").hover(
-                
-                function () {
-                    originalColor = $(this).css("background-color");
-                    $(this).css("background-color", "pink");
-                    
-                },
-                function () {
-                    $(this).css("background-color", originalColor);
-                }
+            $("#princess").hide();
             
-            );
-        
             $("#blue").click(function () {
-
-                disappear("#blue");
+                
+               $(this).fadeOut("slow", function () { // callback function 
+                   
+                   alert("Fadeout has finished");
+                   
+               });
+                
                 
             });
             
-            $("#green").click(function () {
+            $("#clickMe").click(function () {
                 
-                disappear("#green");
-                
-                alert($("#green").css("background-color"));
-                
-            });
-        
-            $("#red").click(function () {
-                
-                disappear("#red");
-                
-                alert("The width of this page is " + $("body").css("width"));
+                $("#fadingText").fadeOut();
                 
             });
             
-            function disappear(shape){
+            $("#princessButton").click(function () {
                 
-                $(shape).hide();
-                
-            };
-
+                $("#princess").toggle("slow");
+            
+            });
+            
         </script>
     
     </body>
