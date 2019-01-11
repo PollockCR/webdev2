@@ -12,41 +12,22 @@
     
     <body>
             
-        <div id="blue" class="circle"></div>
-                
-        <p id="fadingText">This is a <a href="http://api.jquery.com/fadeOut/">link</a> to learn more about the jQuery .fadeOut() function...</p>
-        
-        <button id="clickMe">Click me!</button>
-        
-        <p id="princess">There once was a pretty princess named Penelope. Penelope prefers to pick pink flowers each afternoon. She places the flowers in a pot and presents them to her prudent parents.</p>
-        
-        <button id="princessButton">Toggle trivial text!</button>
+        <div id="green" class="circle"></div>
         
         <script type="text/javascript">
             
-            $("#princess").hide();
-            
-            $("#blue").click(function () {
+            $("#green").click(function () {
                 
-               $(this).fadeOut("slow", function () { // callback function 
-                   
-                   alert("Fadeout has finished");
-                   
-               });
-                
-                
-            });
-            
-            $("#clickMe").click(function () {
-                
-                $("#fadingText").fadeOut();
-                
-            });
-            
-            $("#princessButton").click(function () {
-                
-                $("#princess").toggle("slow");
-            
+                $(this).animate({
+                    width: "400px",
+                    height: "400px", 
+                    marginLeft: "100px",
+                    marginTop: "100px"
+                }, 2000, function () {
+                    
+                    $(this).css("background-color", "pink");
+                    
+                });
             });
             
         </script>
