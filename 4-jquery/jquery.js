@@ -1,9 +1,7 @@
-$.ajax("info.txt").done(function (data) {
-    
-    $("p").html(data);
-    
-}).fail(function () {
-    
-    alert("Error: Could not get data.");
-    
-});
+var regex = /e/g;
+
+var string = "Regex is great!";
+
+var result = string.match(regex);
+
+alert(result);
