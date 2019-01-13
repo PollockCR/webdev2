@@ -1,26 +1,57 @@
-.circle {
-
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    margin: 10px;
+body {
+    
+    font-family: helvetica, sans-serif;
+    font-size: 150%;
 
 }
 
-#red {
-
-    background-color: red;
-
+html, body { 
+    
+    width: 100vw;
+    height: 100vh;    
 }
 
-#blue {
 
-    background-color: blue;
+input {
 
+    padding: 10px;
+    border-radius: 5%;
+    border: 1px gray solid;
+    
 }
 
-#green {
+.form-element {
+    
+    margin-bottom: 10px;
+    
+}
 
-    background-color: green;
+label {
+    
+    position: relative;
+    top: 4px;
+    float: left;
+    width: 200px;
+    
+}
 
+#submitButton {
+    
+    margin-left: 200px;
+    background-color: lightgrey;
+    
+}
+
+.wrapper {
+
+    margin: 0 auto;
+    width: 500px;
+    
+}
+
+#formFeedback {
+    
+    font-size: 70% !important;
+    color: red;
+    
 }
