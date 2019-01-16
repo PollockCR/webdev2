@@ -1,6 +1,2 @@
-$("#littleBox").draggable();
-$("#bigBox").droppable({
-    drop: function( event, ui ) {
-        alert("Good job!");
-    }
-});
+$("#accordion").accordion();
+$("#sortable").sortable();
