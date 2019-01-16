@@ -1,7 +1,17 @@
-.container {
+#bigBox {
     
-    width: 500px;
-    height: 300px;
-    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    background-color: mediumpurple;
+    margin: 10px auto;
+    
+}
+
+#littleBox {
+    
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin: 10px auto;
     
 }
