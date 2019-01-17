@@ -1,0 +1,88 @@
+body, html {
+    
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+#control {
+    
+    background-color: #EDEDED;
+    width: 100vm;
+    height: 50px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    
+}
+
+h3 {
+    
+    float: left;
+    position: fixed;
+    padding: 0px 10px;
+    margin: 13px 0px;
+    
+}
+
+#panels {
+    
+    margin: 10px auto;
+    width: 300px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+#panels .btn {
+    
+    padding: 5px 10px;
+    border-width: 1px 0px 1px 1px;
+    border-color: #CCCCCC;
+    border-style: solid;
+    margin: 0px;
+    float: left;
+    
+}
+
+#panels .btn:first-child {
+    
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    
+}
+
+#panels .btn:last-child {
+    
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    border-right: 1px solid #CCCCCC;
+    
+}
+
+.active {
+    
+    background-color: #EBF3FF ;
+    
+}
+
+.active:hover {
+    
+    background-color: #F5F9FF !important;
+    
+}
+
+.inactive:hover {
+    
+    background-color: #E2E2E2;
+    
+}
+
+.contentPanel {
+    
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
+
