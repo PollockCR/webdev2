@@ -71,4 +71,22 @@ function fixPanelSize(){
     
 }
 
+function displayResult() {
+    
+    $("outputResult").html($("textarea").html());
+    
+}
+
+$.ajax("html.txt").done(function (data) {
+
+    $("textarea").html(data);
+
+}).fail(function () {
+    
+    $("textarea").html("Enter your HTML here...")
+
+});
+
 firstLoad();
+
+setInterval(displayResult, 1000); // call every 1000 milliseconds
