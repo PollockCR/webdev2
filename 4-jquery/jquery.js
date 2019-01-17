@@ -50,9 +50,24 @@ function fixPanelSize(){
     
     $(".contentPanel").each(function () {
         
-        $(this).width(((100 / $(".active").length) - 0.1) + "%");
+        $(this).width(((100 / $(".active").length) - 0.2) + "%");
         
     })
+    
+    if($("body").width() < "500"){
+        
+        $("h3").hide();
+        
+        $(".contentPanel").each(function () {
+        
+            $(this).width(((100 / $(".active").length) - 0.6) + "%");
+        
+        })
+    } else {
+        
+        $("h3").show();
+        
+    }
     
 }
 
