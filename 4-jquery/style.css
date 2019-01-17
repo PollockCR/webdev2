@@ -78,11 +78,19 @@ h3 {
     
 }
 
+#content {
+    
+    width: 100vw;
+    
+}
+
 .contentPanel {
     
+    display: inline-block;
     float: left;
-    width: 100px;
-    height: 100px;
-    background-color: pink;
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid #CCCCCC;
+    
 }
 

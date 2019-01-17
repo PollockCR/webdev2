@@ -1,46 +1,59 @@
+function firstLoad(){
+    
+    $(".btn").each(function () {
+        
+        if ($(this).hasClass("active")){
+            showPanel($(this).attr("id"));
+        } else {
+            hidePanel($(this).attr("id"));
+        }
+        
+    })
+}
+
 $(".btn").click(function() {
+    
     if ($(this).hasClass("active")){
+        
         $(this).removeClass("active");
         $(this).addClass("inactive");
         hidePanel($(this).attr("id"));
         
     } else {
+        
         $(this).addClass("active");
         $(this).removeClass("inactive");
         showPanel($(this).attr("id"));
+        
     }
+    
 });
 
 function showPanel(id){
-    switch (id) {
-        case "htmlButton":
-            $("#html").show();
-            break;
-        case "cssButton":
-            $("#css").show();
-            break;
-        case "javascriptButton":
-            $("#javascript").show();
-            break;
-        case "outputButton":
-            $("#output").show();
-            break;
-    }
+    
+    var panelId = "#" + id.slice(0, id.indexOf("Button"));
+    $(panelId).show();
+    
+    fixPanelSize();
 }
 
 function hidePanel(id){
-    switch (id) {
-        case "htmlButton":
-            $("#html").hide();
-            break;
-        case "cssButton":
-            $("#css").hide();
-            break;
-        case "javascriptButton":
-            $("#javascript").hide();
-            break;
-        case "outputButton":
-            $("#output").hide();
-            break;
-    }
+    
+    var panelId = "#" + id.slice(0, id.indexOf("Button"));
+    $(panelId).hide();
+    
+    fixPanelSize();
+    
 }
+
+function fixPanelSize(){
+    
+    $(".contentPanel").each(function () {
+        
+        $(this).width(((100 / $(".active").length)) + "%");
+        
+    })
+    
+}
+
+firstLoad();
