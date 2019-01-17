@@ -71,9 +71,13 @@ function fixPanelSize(){
     
 }
 
-function displayResult() {
+var displayResult = function () {
     
-    $("outputResult").html($("textarea").html());
+    $("#outputResult").html(
+        $("#htmlText").val() + 
+        "<style>" + $("#cssText").val() + "</style>" + 
+        "<script type='text/javascript'>" + $("#javascriptText").val() + "</script>"
+    );
     
 }
 
@@ -82,8 +86,6 @@ $.ajax("html.txt").done(function (data) {
     $("textarea").html(data);
 
 }).fail(function () {
-    
-    $("textarea").html("Enter your HTML here...")
 
 });
 

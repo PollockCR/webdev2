@@ -98,7 +98,7 @@ h3 {
 h4 {
     
     font-family: 'Roboto', sans-serif;
-    margin: 10px;
+    margin: 8px;
     color: #20AAFF;
 }
 
@@ -108,5 +108,11 @@ h4 {
     width: 100%;
     resize: none;
     height: calc(100vh - 90px);
+    
+}
+
+#outputResult {
+    
+    padding-left: 2px;
     
 }
