@@ -18,7 +18,7 @@ body, html {
 h3 {
     
     float: left;
-    position: fixed;
+    position: absolute;
     padding: 0px 10px;
     margin: 13px 0px;
     
@@ -80,7 +80,9 @@ h3 {
 
 #content {
     
-    width: 100vw;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
     
 }
 
@@ -88,9 +90,16 @@ h3 {
     
     display: inline-block;
     float: left;
-    width: 50%;
+    width: 49.9%;
     height: 100%;
     border-right: 1px solid #CCCCCC;
     
 }
 
+h4 {
+    
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+    float: left; 
+    color: #20AAFF;
+}

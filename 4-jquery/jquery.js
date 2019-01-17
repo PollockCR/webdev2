@@ -50,7 +50,7 @@ function fixPanelSize(){
     
     $(".contentPanel").each(function () {
         
-        $(this).width(((100 / $(".active").length)) + "%");
+        $(this).width(((100 / $(".active").length) - 0.1) + "%");
         
     })
     
