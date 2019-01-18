@@ -56,7 +56,7 @@ function fixPanelSize(){
     
 }
 
-var displayResult = function () {
+function displayResult () {
     
     $("#outputResult").html(
         $("#htmlText").val() + 
@@ -85,6 +85,12 @@ $(window).resize( function () {
     
 });
 
+$("textarea").on("change keyup paste", function (){
+    
+    displayResult();
+    
+});
+
 $.ajax("html.txt").done(function (data) {
 
     $("#htmlText").html(data);
@@ -94,5 +100,4 @@ $.ajax("html.txt").done(function (data) {
 });
 
 firstLoad();
-
-setInterval(displayResult, 3000); // call every 1000 milliseconds
+displayResult();
