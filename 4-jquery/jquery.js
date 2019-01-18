@@ -52,22 +52,7 @@ function fixPanelSize(){
         
         $(this).width(((100 / $(".active").length) - 0.2) + "%");
         
-    })
-    
-    if($("body").width() < "500"){
-        
-        $("h3").hide();
-        
-        $(".contentPanel").each(function () {
-        
-            $(this).width(((100 / $(".active").length) - 0.6) + "%");
-        
-        })
-    } else {
-        
-        $("h3").show();
-        
-    }
+    });
     
 }
 
@@ -81,9 +66,28 @@ var displayResult = function () {
     
 }
 
+$(window).resize( function () {
+    
+    if($("body").width() < "500"){
+
+    $("h3").hide();
+
+    $(".contentPanel").each(function () {
+
+        $(this).width(((100 / $(".active").length) - 0.6) + "%");
+
+    })
+    } else {
+        
+        $("h3").show();
+        
+    }
+    
+});
+
 $.ajax("html.txt").done(function (data) {
 
-    $("textarea").html(data);
+    $("#htmlText").html(data);
 
 }).fail(function () {
 
@@ -91,4 +95,4 @@ $.ajax("html.txt").done(function (data) {
 
 firstLoad();
 
-setInterval(displayResult, 1000); // call every 1000 milliseconds
+setInterval(displayResult, 3000); // call every 1000 milliseconds
