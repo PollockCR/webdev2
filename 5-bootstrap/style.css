@@ -8,6 +8,10 @@
 .jumbotron {
     
     height: 600px;
+    background-image: url(images/annie-spratt-466672-unsplash.jpg);
+    background-size: 100%;
+    width: auto;
+    background-position: top;
     
 }
 
@@ -20,7 +24,7 @@
 #sign-up-form {
     
     width: 400px;
-    margin: 0 auto;
+    margin: 50px auto;
     
 }
 
@@ -28,4 +32,58 @@
     
     background-color: #4E120F;
     
+}
+
+#about {
+    
+    padding: 50px 0px;
+    background-color: #fcfbf2;
+    
+}
+
+#cards {
+    
+    margin: 50px auto;
+    
+}
+
+#download {
+    
+    background-color: #862117;
+    height: 330px;
+    padding-top: 40px;
+    
+}
+
+#play-store {
+    
+    height: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+#app-store {
+    
+    height: 70px;
+    margin-top: 30px;
+    
+}
+
+#download-text {
+    
+    
+}
+
+/* For viewports less than 1000px wide */
+@media (max-width: 1000px) {
+
+    .jumbotron {
+        background-size: 1000px 600px;
+    }
+    
+    #jumbotron-text {
+        margin-top: 200px;
+    }
+
 }
