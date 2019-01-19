@@ -9,86 +9,131 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="style.css">
+
         <title>Hello, world!</title>
 
     </head>
 
-    <body>
+    <body data-spy="scroll" data-target="#navbar">
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-animal="cats">
-            I like cats
-        </button>
+        <div class="row">
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-animal="dogs">
-            I like dogs
-        </button>
+            <div class="col-sm-2">
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-animal="turtles">
-            I like turtles
-        </button>
+                <nav id="navbar" class="navbar navbar-light bg-light">
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link" href="#item-1">Item 1</a>
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a>
+                            <a class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
+                        </nav>
+                        <a class="nav-link" href="#item-2">Item 2</a>
+                        <a class="nav-link" href="#item-3">Item 3</a>
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
+                            <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
+                        </nav>
+                    </nav>
+                </nav>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
             </div>
+
+            <div class="col-sm-10">
+
+                <h4 id="item-1">Item 1</h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+                <h5 id="item-1-1">Item 1-1</h5>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+                <h5 id="item-1-2">Item 1-2</h5>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+                <h4 id="item-2">Item 2</h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+                <h4 id="item-3">Item 3</h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+                <h5 id="item-3-1">Item 3-1</h5>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+                <h5 id="item-3-2">Item 3-2</h5>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a metus et diam molestie sodales. Morbi at sem placerat, pulvinar lacus ac, pharetra dui. Proin felis diam, malesuada sed aliquet non, luctus sed enim. Aliquam eget nisi et lectus mattis faucibus in in dui. Donec varius pharetra lorem ac aliquet. Nullam facilisis pretium augue, et rutrum ligula tempor eu. Pellentesque id ex non odio posuere tristique. Aliquam eu aliquam ligula, eget pellentesque urna. Quisque auctor magna at magna porta fermentum.</p>
+
+                <p>Nullam dapibus lorem justo, in aliquet libero dictum id. Ut commodo sapien nisi, in vulputate odio bibendum vitae. Suspendisse ut tristique libero. Fusce posuere massa quis neque scelerisque, non blandit velit pretium. Cras at semper lectus, non convallis justo. Mauris eget urna sit amet libero tempus facilisis. Fusce sollicitudin varius arcu, ut dignissim urna feugiat non. Nulla sodales enim non eleifend ultrices. Nulla convallis viverra maximus. Nullam venenatis, orci quis sodales tempor, purus eros semper libero, id bibendum enim felis sit amet odio. Sed volutpat erat id dolor posuere, ut tristique felis pretium. Praesent fringilla ullamcorper ex nec ultrices.</p>
+
+                <p>Maecenas mollis blandit sem, a ullamcorper quam condimentum sed. Quisque pellentesque vestibulum mi eget bibendum. Morbi dapibus ultrices semper. In vel tempor leo, at elementum leo. Curabitur vestibulum, ligula sed ultricies condimentum, justo justo molestie enim, ut pulvinar erat purus in nibh. Mauris a malesuada lectus. Curabitur at facilisis est. Donec cursus tortor nec placerat porttitor. Pellentesque mollis mattis velit eget semper. Curabitur ullamcorper, lectus ut efficitur iaculis, metus lectus dignissim mauris, id eleifend justo leo vitae neque. Aliquam fermentum consectetur auctor. Duis tincidunt tortor velit, eget tempor quam fringilla sit amet. Fusce sed lectus ligula. Nulla facilisi.</p>
+
+                <p>Nullam maximus sit amet neque id finibus. Curabitur convallis mollis magna, id hendrerit ligula blandit id. Etiam rhoncus velit erat, luctus facilisis metus tincidunt nec. Vivamus in eros vitae orci laoreet scelerisque in a libero. Suspendisse nulla neque, ullamcorper eget dapibus dictum, rhoncus vel justo. Vestibulum luctus vestibulum tristique. Maecenas sed justo dui. Donec sit amet ullamcorper diam, vel scelerisque ex. Morbi tristique tellus vel lobortis hendrerit.</p>
+
+                <p>Nam pharetra lectus ut enim tempor vulputate. Donec consectetur hendrerit elit a vehicula. In tincidunt fringilla sodales. Aliquam a cursus diam. Nunc mi dui, pulvinar et commodo id, viverra sit amet tortor. Mauris vitae neque enim. Vestibulum nec massa eget elit dignissim aliquet. Cras mattis massa eu magna laoreet, non ullamcorper ipsum tincidunt. Proin dignissim lacus id facilisis facilisis. Duis sollicitudin purus a lorem mollis vestibulum.</p>
+
+            </div>
+
         </div>
-
-        <br><br>
-
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-placement="bottom" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-        
-        <button type="button" class="btn btn-secondary" id="exampleTooltip" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
-            Tooltip on bottom
-        </button>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-        <script type="text/javascript">
+        <script type=text/javascript src="javascript.js"></script>
 
-            $('#exampleModal').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var animal = button.data('animal') // Extract info from data-* attributes
-                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-                var modal = $(this)
-                modal.find('.modal-title').text('We like ' + animal)
-                modal.find('.modal-body input').val(animal)
-            })
-
-            $('#exampleModal').on('hide.bs.modal', function (event) {
-                alert("Modal was closed!")
-            })
-            
-            $("#exampleTooltip").on('show.bs.tooltip', function (event) {
-                alert("Alert the tools")
-            })
-
-            $(function () {
-                $('[data-toggle="popover"]').popover()
-            })
-
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
-            })
-
-        </script>
     </body>
 </html>
