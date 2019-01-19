@@ -1,9 +1,31 @@
-body {
+.brand {
     
-    position: relative;
+    font-size: 150%;
+    vertical-align: middle;
     
 }
 
-#navbar {
-    position: fixed;
+.jumbotron {
+    
+    height: 600px;
+    
+}
+
+#jumbotron-text {
+    
+    margin-top: 333px;
+    
+}
+
+#sign-up-form {
+    
+    width: 400px;
+    margin: 0 auto;
+    
+}
+
+.dark-red {
+    
+    background-color: #4E120F;
+    
 }
