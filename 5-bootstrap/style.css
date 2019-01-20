@@ -1,78 +1,100 @@
+body {
+
+    position: relative;
+    padding-top: 70px;
+
+}
+
 .brand {
-    
+
     font-size: 150%;
     vertical-align: middle;
-    
+
+}
+
+#sign-in {
+
+    padding-right: 20px;
+
 }
 
 .jumbotron {
-    
+
     height: 600px;
     background-image: url(images/annie-spratt-466672-unsplash.jpg);
     background-size: 100%;
     width: auto;
     background-position: top;
-    
+    margin-top:-70px;
+    padding-top:70px;
+
 }
 
 #jumbotron-text {
-    
+
     margin-top: 333px;
-    
+
 }
 
 #sign-up-form {
-    
+
     width: 400px;
-    margin: 50px auto;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+#sign-up {
+    
+    padding-bottom: 120px;
+    margin-top:-70px;
+    padding-top:70px;
     
 }
 
 .dark-red {
-    
+
     background-color: #4E120F;
-    
+
 }
 
 #about {
-    
-    padding: 50px 0px;
+
+    margin-right: auto;
+    margin-left: auto;
     background-color: #fcfbf2;
-    
+    margin-top:-70px;
+    padding-top:70px;
+    padding-bottom: 70px;
 }
 
 #cards {
-    
+
     margin: 50px auto;
-    
+
 }
 
 #download {
-    
+
     background-color: #862117;
     height: 330px;
     padding-top: 40px;
-    
+
 }
 
 #play-store {
-    
+
     height: 70px;
     margin-top: 30px;
     margin-bottom: 30px;
-    
+
 }
 
 #app-store {
-    
+
     height: 70px;
     margin-top: 30px;
-    
-}
 
-#download-text {
-    
-    
 }
 
 /* For viewports less than 1000px wide */
@@ -81,7 +103,7 @@
     .jumbotron {
         background-size: 1000px 600px;
     }
-    
+
     #jumbotron-text {
         margin-top: 200px;
     }
