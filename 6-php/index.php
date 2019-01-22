@@ -1,23 +1,23 @@
 <?php
 
-$myNameIs = "My name is";
+$myArray = array("Dog", "Cat", "Turtle", "Gerbil");
 
-$name = "Cat";
+$myArray[] = "Platypus";
 
-echo $myNameIs." ".$name;
+print_r($myArray);
 
-$myNumber = 324325;
+echo $myArray[1]."<br>";
 
-$myNumber = $myNumber * 3 / 5 + 11;
+$languages = array(
+    "France" => "French",
+    "Germany" => "German",
+    "England" => "English"
+);
 
-echo $myNumber;
+unset($languages["France"]);
 
-$myBool = true;
-
-echo $myBool;
-
-$variableName = "name";
-
-echo $$variableName;
+print_r($languages);
     
+echo sizeof($languages);
+
 ?>
