@@ -1,22 +1,14 @@
 <?php
 
-$result = false;
+$emailTo = "armyswag@armyspy.com";
 
-$users = array("Cat", "Adrian", "Vivian", "Eva", "Taylor", "Caleb", "Navy", "Elliot", "Emerett");
+$subject = "I hope this works";
 
-if ($_POST && array_key_exists("name", $_POST)){
+$body = "This is some interesting email content.";
 
-    if (in_array($_POST["name"], $users)){
+$headers = "From: milkshake@theyard.com";
 
-        $result = "Yay! You have been granted access. Welcome, ".$_POST['name'].".";
-
-    } else {
-
-        $result = $_POST["name"]."... Thou shall not pass!";
-
-    }
-
-}
+$result = mail($emailTo, $subject, $body, $headers);
 
 ?>
 
@@ -38,23 +30,11 @@ if ($_POST && array_key_exists("name", $_POST)){
 
     <body>
 
-        <h1>Are you one of us?</h1>
+        <?php 
+        
+            echo ($result ? "Email sent succesfully" : "Email not sent");
 
-        <p>Enter your name: </p>
-
-        <form class="form-inline" method="post">
-
-            <div class="form-group mb-2 mr-2">
-
-                <input type="text" name="name" class="form-control" id="name">
-
-            </div>
-
-            <input type="submit" value="Submit" class="btn btn-primary mb-2">
-
-        </form>
-
-        <p><?php echo ($result ? $result : ""); ?></p>
+        ?>
 
     </body>
 
