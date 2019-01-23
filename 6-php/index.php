@@ -1,23 +1,27 @@
 <?php
 
-$myArray = array("Dog", "Cat", "Turtle", "Gerbil");
+$user = "Cat";
 
-$myArray[] = "Platypus";
-
-print_r($myArray);
-
-echo $myArray[1]."<br>";
-
-$languages = array(
-    "France" => "French",
-    "Germany" => "German",
-    "England" => "English"
-);
-
-unset($languages["France"]);
-
-print_r($languages);
+if($user == "Cat"){
     
-echo sizeof($languages);
+    echo "Hello $user!<br>";
+    
+} else {
+    
+    echo "I don't know you.<br>";
+    
+}
+
+$age = 23;
+
+if($age >= 18){
+    
+    echo "You may proceed";
+    
+} else {
+    
+    echo "You are not old enough.";
+    
+}
 
 ?>
