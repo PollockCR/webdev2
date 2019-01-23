@@ -1,16 +1,14 @@
 <?php
 
-for ($i = 0; $i < 5; $i++){
+$animals = array("shark", "turtle", "platypus", "chimpanzee");
 
-    echo $i."<br>";
+$i = 0;
 
-}
-
-$animals = array("Cat", "Dog", "Mouse", "Turtle", "Gerbil");
-
-foreach ($animals as $key => $value){
+while($i < sizeof($animals)){
     
-    echo "The animal at index ".$key." is ".$value."<br>";
+    echo $animals[$i]."<br>";
+    
+    $i++;
     
 }
 
