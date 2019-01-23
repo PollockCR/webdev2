@@ -21,13 +21,13 @@
 
         <form class="form-inline">
 
-            <div class="form-group">
+            <div class="form-group mb-2 ">
 
                 <input type="number" name="number" class="form-control">
 
             </div>
 
-            <input type="submit" value="Submit" class="btn btn-primary ml-2">
+            <input type="submit" value="Submit" class="btn btn-primary mb-2 ml-2">
 
         </form>
 
