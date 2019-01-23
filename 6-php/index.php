@@ -1,26 +1,16 @@
 <?php
 
-$user = "Cat";
+for ($i = 0; $i < 5; $i++){
 
-if($user == "Cat"){
-    
-    echo "Hello $user!<br>";
-    
-} else {
-    
-    echo "I don't know you.<br>";
-    
+    echo $i."<br>";
+
 }
 
-$age = 23;
+$animals = array("Cat", "Dog", "Mouse", "Turtle", "Gerbil");
 
-if($age >= 18){
+foreach ($animals as $key => $value){
     
-    echo "You may proceed";
-    
-} else {
-    
-    echo "You are not old enough.";
+    echo "The animal at index ".$key." is ".$value."<br>";
     
 }
 
