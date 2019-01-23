@@ -1,3 +1,26 @@
+<?php
+
+$result = false;
+
+$users = array("Cat", "Adrian", "Vivian", "Eva", "Taylor", "Caleb", "Navy", "Elliot", "Emerett");
+
+if ($_POST && array_key_exists("name", $_POST)){
+
+    if (in_array($_POST["name"], $users)){
+
+        $result = "Yay! You have been granted access. Welcome, ".$_POST['name'].".";
+
+    } else {
+
+        $result = $_POST["name"]."... Thou shall not pass!";
+
+    }
+
+}
+
+?>
+
+
 <html>
 
     <head>
@@ -15,14 +38,25 @@
 
     <body>
 
-        
+        <h1>Are you one of us?</h1>
+
+        <p>Enter your name: </p>
+
+        <form class="form-inline" method="post">
+
+            <div class="form-group mb-2 mr-2">
+
+                <input type="text" name="name" class="form-control" id="name">
+
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-primary mb-2">
+
+        </form>
+
+        <p><?php echo ($result ? $result : ""); ?></p>
 
     </body>
 
 </html>
 
-<?php
-
-
-
-?>
