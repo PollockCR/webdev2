@@ -2,26 +2,37 @@
 
 $weather = "";
 
+$city = "";
+
 if($_GET && array_key_exists("city", $_GET)){
 
-    $city = str_replace(" ", "-", $_GET["city"]);
+    $city_dash = str_replace(" ", "-", $_GET["city"]);
 
-    $weather = file_get_contents("https://www.weather-forecast.com/locations/$city/forecasts/latest");
+    $file_headers = @get_headers("https://www.weather-forecast.com/locations/$city_dash/forecasts/latest");
 
     $city = ucwords($_GET["city"]);
 
-    if(!$weather){
-
+    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
 
         $weather = '<div class="alert alert-danger" role="alert">The city '.$city.' could not be found. Please try again.</div>';
 
     } else {
 
+        $weather = file_get_contents("https://www.weather-forecast.com/locations/$city_dash/forecasts/latest");
+
         $weather = strstr($weather,'<span class="phrase">');
 
         $weather = strstr($weather, '</p>', true);
 
-        $weather = '<div class="alert alert-secondary" role="alert"><strong>'.$city.":</strong> ".$weather.'</div>';
+        if(!$weather){
+
+            $weather = '<div class="alert alert-danger" role="alert">There was an unknown error.</div>';
+
+        } else {
+
+            $weather = '<div class="alert alert-secondary" role="alert"><strong>'.$city.":</strong> ".$weather.'</div>';
+
+        }
 
     }
 
@@ -67,7 +78,7 @@ if($_GET && array_key_exists("city", $_GET)){
                 <form class="form-inline">
 
                     <label class="sr-only" for="city">City</label>
-                    <input type="text" class="form-control mb-2 mr-sm-2" name="city" id="city" placeholder="e.g. Paris">
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="city" id="city" placeholder="e.g. Paris" value= "<?php echo $city; ?>">
 
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
@@ -86,7 +97,7 @@ if($_GET && array_key_exists("city", $_GET)){
             </div>
 
             <div id="credits">
-                
+
                 <a href="https://unsplash.com/@jhonkasalo?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Joakim Honkasalo" class="credit"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Joakim Honkasalo</span></a>   
 
                 <a href="https://www.weather-forecast.com/" target="_blank" rel="noopener noreferrer" title="Weather Forecast" class="credit"><span style="display:inline-block;padding:2px 3px"><i class="fas fa-sun"></i> Weather Forecast</span></a>                
