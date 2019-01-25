@@ -1,0 +1,45 @@
+.credit {
+
+    background-color:#626E86;
+    color:white;
+    text-decoration:none;
+    padding:4px 6px;
+    font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    line-height:1.2;
+    display:inline-block;border-radius:3px
+
+}
+
+.container-flex {
+
+    height: 100vh;
+    background-image: url(images/joakim-honkasalo-1260340-unsplash.jpg);
+    background-size: 100%;
+    width: auto;
+    background-position: bottom;
+    position: relative;
+    padding-top: 130px;
+
+}
+
+#credits {
+
+    position: absolute;
+    bottom: 0;
+
+}
+
+/* For viewports less than 1400px wide */
+@media (max-width: 1400px) {
+
+    .container-flex {
+        
+        background-size: auto 100%;
+        background-position: bottom;
+        padding-top: 80px;
+        
+    }
+
+}
