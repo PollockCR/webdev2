@@ -21,7 +21,7 @@ if($_GET && array_key_exists("city", $_GET)){
 
         $weather = strstr($weather, '</p>', true);
 
-        $weather = '<div class="alert alert-secondary" role="alert"><strong>'.$city."</strong> weather today: ".$weather.'</div>';
+        $weather = '<div class="alert alert-secondary" role="alert"><strong>'.$city.":</strong> ".$weather.'</div>';
 
     }
 
