@@ -10,6 +10,22 @@ if (mysqli_connect_error()){
 
 } 
 
+$query = "SELECT id FROM `users` WHERE `email` = 'felixthefox@armyspy.com'";
+
+$result = mysqli_query($link, $query);
+
+if($result->num_rows == 0) {
+
+    $query = "INSERT INTO `users` (`email`, `password`) VALUES ('felixthefox@armyspy.com', 'goodmorningworld')";
+    
+    mysqli_query($link, $query);
+
+}
+
+$query = "UPDATE `users` SET `email` = 'pandasarecool@armyspy.com' WHERE `email` = 'pandagang@armyspy.com' LIMIT 1";
+
+mysqli_query($link, $query);
+
 $query = "SELECT * FROM users";
 
 if($result = mysqli_query($link, $query)){
