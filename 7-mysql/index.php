@@ -14,18 +14,48 @@ if (mysqli_connect_error()){
 
 }
 
-$query = "SELECT * FROM `users` WHERE `email` LIKE '%p%'";
+if ($_POST && array_key_exists("email", $_POST) && array_key_exists("name", $_POST) && array_key_exists("password", $_POST)){
 
-if ($result = mysqli_query($link, $query)){
+    $email = $_POST["email"];
+    
+    $name = $_POST["name"];
+    
+    $password = $_POST["password"];
 
-    while ($row = mysqli_fetch_array($result)){
+    $query = "SELECT id FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $email)."'";
 
-        print_r($row);
+    // Use mysqli_real_escape_string to prevent SQL injection
+    
+    $result = mysqli_query($link, $query);
+
+    if ($result->num_rows != 0){
+
+        echo "Insert error. Email already exists in database.<br>";
+
+
+    } else {
+
+        $query = "INSERT INTO `users` (`id`, `email`, `password`, `name`) VALUES (NULL, '".mysqli_real_escape_string($link, $email)."', '".mysqli_real_escape_string($link, $password)."', '".mysqli_real_escape_string($link, $name)."')";
+
+        mysqli_query($link, $query);
+
+        echo "Insert successful.<br>";
 
     }
 
 }
 
-
-
 ?>
+
+
+<form method="post">
+
+    <input type="text" name="name" placeholder="Name" required>
+
+    <input type="email" name="email" placeholder="Email" required>
+
+    <input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;" required>
+
+    <input type="submit">
+
+</form>
