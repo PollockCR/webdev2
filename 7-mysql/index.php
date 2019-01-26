@@ -2,37 +2,27 @@
 
 include("secrets.php");
 
-$link = mysqli_connect("shareddb-m.hosting.stackcp.net", USERNAME, PASSWORD, USERNAME);
+$username = USERNAME;
+
+$password = PASSWORD;
+
+$link = mysqli_connect("shareddb-m.hosting.stackcp.net", $username, $password, $username);
 
 if (mysqli_connect_error()){
 
     die ("Error: The database could not be accessed.");
 
-} 
-
-$query = "SELECT id FROM `users` WHERE `email` = 'felixthefox@armyspy.com'";
-
-$result = mysqli_query($link, $query);
-
-if($result->num_rows == 0) {
-
-    $query = "INSERT INTO `users` (`email`, `password`) VALUES ('felixthefox@armyspy.com', 'goodmorningworld')";
-    
-    mysqli_query($link, $query);
-
 }
 
-$query = "UPDATE `users` SET `email` = 'pandasarecool@armyspy.com' WHERE `email` = 'pandagang@armyspy.com' LIMIT 1";
+$query = "SELECT * FROM `users` WHERE `email` LIKE '%p%'";
 
-mysqli_query($link, $query);
+if ($result = mysqli_query($link, $query)){
 
-$query = "SELECT * FROM users";
+    while ($row = mysqli_fetch_array($result)){
 
-if($result = mysqli_query($link, $query)){
+        print_r($row);
 
-    $row = mysqli_fetch_array($result);
-
-    echo "Welcome, ".$row["email"];
+    }
 
 }
 
