@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 include("secrets.php");
 
 $username = USERNAME;
@@ -16,16 +18,10 @@ if (mysqli_connect_error()){
 
 if ($_POST && array_key_exists("email", $_POST) && array_key_exists("name", $_POST) && array_key_exists("password", $_POST)){
 
-    $email = $_POST["email"];
-    
-    $name = $_POST["name"];
-    
-    $password = $_POST["password"];
-
-    $query = "SELECT id FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $email)."'";
+    $query = "SELECT id FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
 
     // Use mysqli_real_escape_string to prevent SQL injection
-    
+
     $result = mysqli_query($link, $query);
 
     if ($result->num_rows != 0){
@@ -35,11 +31,44 @@ if ($_POST && array_key_exists("email", $_POST) && array_key_exists("name", $_PO
 
     } else {
 
-        $query = "INSERT INTO `users` (`id`, `email`, `password`, `name`) VALUES (NULL, '".mysqli_real_escape_string($link, $email)."', '".mysqli_real_escape_string($link, $password)."', '".mysqli_real_escape_string($link, $name)."')";
+        $query = "INSERT INTO `users` (`id`, `email`, `password`, `name`) VALUES (NULL, '".mysqli_real_escape_string($link, $_POST["email"])."', '".mysqli_real_escape_string($link, $_POST["password"])."', '".mysqli_real_escape_string($link, $_POST["name"])."')";
 
         mysqli_query($link, $query);
 
-        echo "Insert successful.<br>";
+        $_SESSION["email"] = $_POST["email"];
+
+        header("Location: session.php");
+
+    }
+
+} else if ($_POST && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
+
+    $query = "SELECT `password` FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
+
+    // Use mysqli_real_escape_string to prevent SQL injection
+
+    $result = mysqli_query($link, $query);
+
+    if ($result->num_rows != 0){
+
+        $row = mysqli_fetch_row($result);
+
+        if($row["0"] == $_POST["password"]){
+
+            $_SESSION["email"] = $_POST["email"];
+
+            header("Location: session.php");
+
+        } else {
+
+            echo "Incorrect email or password";
+
+        }
+
+
+    } else {
+
+        echo "Incorrect email or password";
 
     }
 
@@ -47,15 +76,40 @@ if ($_POST && array_key_exists("email", $_POST) && array_key_exists("name", $_PO
 
 ?>
 
+<html>
 
-<form method="post">
+    <head>
 
-    <input type="text" name="name" placeholder="Name" required>
+    </head>
 
-    <input type="email" name="email" placeholder="Email" required>
+    <body>
 
-    <input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;" required>
+        <p>Sign up:</p>
 
-    <input type="submit">
+        <form method="post">
 
-</form>
+            <input type="text" name="name" placeholder="Name" required>
+
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <input type="submit" value="Sign Up">
+
+        </form>
+        
+        <p>Sign in:</p>
+
+        <form method="post">
+
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <input type="submit" value="Sign In">
+
+        </form>
+
+    </body>
+
+</html>
