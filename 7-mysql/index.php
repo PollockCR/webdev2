@@ -1,10 +1,8 @@
 <?php 
 
-setcookie("customerId", "1234", time() + 60 * 60 * 24); // 1 day
+$row['id'] = 74;
 
-//setcookie("customerId", "", time() - 60 * 60); // unset/delete cookie
-
-echo $_COOKIE["customerId"];
+echo md5(md5($row['id'])."password");
 
 ?>
 
