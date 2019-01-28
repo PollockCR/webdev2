@@ -4,17 +4,7 @@ session_start();
 
 if ($_POST && array_key_exists("sign-out", $_POST) && $_POST["sign-out"] == "Sign Out"){
 
-    setcookie("email", "", time() - 60);
-
-    setcookie("password", "", time() - 60);
-
-    if ($_SESSION && array_key_exists("email", $_SESSION)){
-
-        unset($_SESSION["email"]);
-
-    }
-
-    header("Location: index.php");
+    header("Location: index.php?sign-out=1");
 
 } else if ($_SESSION && array_key_exists("email", $_SESSION)){
 

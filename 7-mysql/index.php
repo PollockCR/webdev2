@@ -16,7 +16,21 @@ if (mysqli_connect_error()){
 
 }
 
-if ($_POST && array_key_exists("submit", $_POST)){
+if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
+    
+    setcookie("email", "", time() - 60);
+
+    setcookie("password", "", time() - 60);
+
+    if ($_SESSION && array_key_exists("email", $_SESSION)){
+
+        unset($_SESSION["email"]);
+
+    }
+    
+    header("Location: index.php");
+
+} else if ($_POST && array_key_exists("submit", $_POST)){
 
     // sign up
 
