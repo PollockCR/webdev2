@@ -7,7 +7,7 @@ if ($_POST && array_key_exists("sign-out", $_POST) && $_POST["sign-out"] == "Sig
     header("Location: index.php?sign-out=1");
 
 } else if ($_SESSION && array_key_exists("email", $_SESSION)){
-
+    
     echo "Welcome, ".$_SESSION["email"];
 
 } else {

@@ -17,17 +17,15 @@ if (mysqli_connect_error()){
 }
 
 if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
-    
-    setcookie("email", "", time() - 60);
 
-    setcookie("password", "", time() - 60);
+    setcookie("session", "", time() - 60);
 
     if ($_SESSION && array_key_exists("email", $_SESSION)){
 
         unset($_SESSION["email"]);
 
     }
-    
+
     header("Location: index.php");
 
 } else if ($_POST && array_key_exists("submit", $_POST)){
@@ -57,9 +55,7 @@ if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
 
             if(array_key_exists("remember-sign-up", $_POST) && $_POST["remember-sign-up"]){
 
-                setcookie("email", $_POST["email"], time() + 60 * 60 * 24 * 1);
-
-                setcookie("password", $password, time() + 60 * 60 * 24 * 1);
+                rememberMe($link);
 
             }
 
@@ -85,9 +81,7 @@ if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
 
                 if(array_key_exists("remember-sign-in", $_POST) && $_POST["remember-sign-in"]){
 
-                    setcookie("email", $_POST["email"], time() + 60 * 60 * 24 * 1);
-
-                    setcookie("password", $row["0"], time() + 60 * 60 * 24 * 1);
+                    rememberMe($link);
 
                 }
 
@@ -108,11 +102,24 @@ if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
 
     }
 
-} else if ($_COOKIE && array_key_exists("email", $_COOKIE) && array_key_exists("password", $_COOKIE)){
+} else if ($_COOKIE && array_key_exists("session", $_COOKIE)){
 
     // remember me 
+    if (checkMe($link)){
 
-    $query = "SELECT `password` FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_COOKIE["email"])."'";
+        header("Location: session.php");
+
+    } else {
+
+        echo "Please log in again.";
+
+    }
+
+}
+
+function checkMe ($link) {
+
+    $query = "SELECT `email` FROM `users` WHERE `session` = '".$_COOKIE["session"]."'";
 
     $result = mysqli_query($link, $query);
 
@@ -120,22 +127,33 @@ if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
 
         $row = mysqli_fetch_row($result);
 
-        if ($_COOKIE["password"] == $row["0"]){
+        $_SESSION["email"] = $row["0"];
 
-            $_SESSION["email"] = $_COOKIE["email"];
+        return true;
 
-            header("Location: session.php");
+    }
 
-        } else {
+    return false;
 
-            echo "Please log in again.";
+}
 
-        }
+function rememberMe ($link){
 
+    $query = "SELECT `id` FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
 
-    } else {
+    $result = mysqli_query($link, $query);
 
-        echo "Please log in again.";
+    if ($result->num_rows != 0){
+
+        $row = mysqli_fetch_row($result);
+
+        $session = md5('9a7fd98asf'.time().$row["0"]);
+
+        $query = "UPDATE `users` SET `session` = '".$session."' WHERE `id` = '".$row["0"]."'";
+
+        $result = mysqli_query($link, $query);
+
+        setcookie("session", $session, time() + 60 * 60 * 24 * 1);
 
     }
 
