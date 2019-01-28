@@ -32,7 +32,7 @@ if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
 
     // sign up
 
-    if ($_POST["submit"] == "Sign Up" && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
+    if ($_POST["signUp"] && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
 
         $query = "SELECT id FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
 
@@ -63,7 +63,7 @@ if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
 
         }
 
-    } else if ($_POST["submit"] == "Sign In" && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
+    } else if (!$_POST["signUp"] && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
 
         // sign in 
 
@@ -179,6 +179,8 @@ function rememberMe ($link){
 
             <input type="checkbox" name="remember-sign-up">
 
+            <input type="hidden" name="signUp" value="1">
+
             <input type="submit" value="Sign Up" name="submit">
 
         </form>
@@ -192,6 +194,8 @@ function rememberMe ($link){
             <input type="password" name="password" placeholder="Password" required>
 
             <input type="checkbox" name="remember-sign-in">
+
+            <input type="hidden" name="signUp" value="0">
 
             <input type="submit" value="Sign In" name="submit">
 
