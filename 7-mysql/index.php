@@ -1,205 +1,109 @@
 <?php 
 
-session_start();
-
-include("secrets.php");
-
-$username = USERNAME;
-
-$password = PASSWORD;
-
-$link = mysqli_connect("shareddb-m.hosting.stackcp.net", $username, $password, $username);
-
-if (mysqli_connect_error()){
-
-    die ("Error: The database could not be accessed.");
-
-}
-
-if ($_GET && array_key_exists("sign-out", $_GET) && $_GET["sign-out"]){
-
-    setcookie("session", "", time() - 60);
-
-    if ($_SESSION && array_key_exists("email", $_SESSION)){
-
-        unset($_SESSION["email"]);
-
-    }
-
-    header("Location: index.php");
-
-} else if ($_POST && array_key_exists("submit", $_POST)){
-
-    // sign up
-
-    if ($_POST["signUp"] && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
-
-        $query = "SELECT id FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
-
-        $result = mysqli_query($link, $query);
-
-        if ($result->num_rows != 0){
-
-            echo "Sign up error: Email already exists in database.<br>";
-
-
-        } else {
-
-            $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-            $query = "INSERT INTO `users` (`id`, `email`, `password`, `name`) VALUES (NULL, '".mysqli_real_escape_string($link, $_POST["email"])."', '".$password."', '')";
-
-            mysqli_query($link, $query);
-
-            $_SESSION["email"] = $_POST["email"];
-
-            if(array_key_exists("remember-sign-up", $_POST) && $_POST["remember-sign-up"]){
-
-                rememberMe($link);
-
-            }
-
-            header("Location: session.php");
-
-        }
-
-    } else if (!$_POST["signUp"] && array_key_exists("email", $_POST) && array_key_exists("password", $_POST)){
-
-        // sign in 
-
-        $query = "SELECT `password` FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
-
-        $result = mysqli_query($link, $query);
-
-        if ($result->num_rows != 0){
-
-            $row = mysqli_fetch_row($result);
-
-            if(password_verify($_POST["password"], $row["0"])){
-
-                $_SESSION["email"] = $_POST["email"];
-
-                if(array_key_exists("remember-sign-in", $_POST) && $_POST["remember-sign-in"]){
-
-                    rememberMe($link);
-
-                }
-
-                header("Location: session.php");
-
-            } else {
-
-                echo "Incorrect email or password";
-
-            }
-
-
-        } else {
-
-            echo "Incorrect email or password";
-
-        }
-
-    }
-
-} else if ($_COOKIE && array_key_exists("session", $_COOKIE)){
-
-    // remember me 
-    if (checkMe($link)){
-
-        header("Location: session.php");
-
-    } else {
-
-        echo "Please log in again.";
-
-    }
-
-}
-
-function checkMe ($link) {
-
-    $query = "SELECT `email` FROM `users` WHERE `session` = '".$_COOKIE["session"]."'";
-
-    $result = mysqli_query($link, $query);
-
-    if ($result->num_rows != 0){
-
-        $row = mysqli_fetch_row($result);
-
-        $_SESSION["email"] = $row["0"];
-
-        return true;
-
-    }
-
-    return false;
-
-}
-
-function rememberMe ($link){
-
-    $query = "SELECT `id` FROM `users` WHERE `email` = '".mysqli_real_escape_string($link, $_POST["email"])."'";
-
-    $result = mysqli_query($link, $query);
-
-    if ($result->num_rows != 0){
-
-        $row = mysqli_fetch_row($result);
-
-        $session = md5('9a7fd98asf'.time().$row["0"]);
-
-        $query = "UPDATE `users` SET `session` = '".$session."' WHERE `id` = '".$row["0"]."'";
-
-        $result = mysqli_query($link, $query);
-
-        setcookie("session", $session, time() + 60 * 60 * 24 * 1);
-
-    }
-
-}
+include("form.php");
 
 ?>
 
-<html>
+<html lang="en">
 
     <head>
+
+        <title>Secret Diary</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="style.css">
 
     </head>
 
     <body>
 
-        <p>Sign up:</p>
+        <div class="container text-center text-light">
 
-        <form method="post">
+            <h1>Secret Diary</h1>
 
-            <input type="email" name="email" placeholder="Email" required>
+            <p class="font-weight-bold">Store your thoughts permanently and securely.</p>
+            
+            <?php 
+            
+            if($error){
+                
+                echo '<div class="alert alert-danger col-6 mt-4 mx-auto" role="alert">'.$error.'</div>';
+                
+            }
+            
+            ?>
 
-            <input type="password" name="password" placeholder="Password" required>
+            <div id="sign-up" class="col-6 mx-auto mt-4">
 
-            <input type="checkbox" name="remember-sign-up">
+                <p>Interested? Sign up now.</p>
 
-            <input type="hidden" name="signUp" value="1">
+                <form method="post">
 
-            <input type="submit" value="Sign Up" name="submit">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
+                    </div>
 
-        </form>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
 
-        <p>Sign in:</p>
+                    <div class="form-group form-check mx-auto text-center">
+                        <input type="checkbox" class="form-check-input" name="remember-me" id="remember-sign-up">
+                        <label class="form-check-label text-light" for="remember-sign-up">Remember me</label>
+                    </div>
 
-        <form method="post">
+                    <div class="mx-auto text-center">     
+                        <input type="hidden" name="is-sign-up" value="1">
+                        <input type="submit" class="btn btn-primary text-light" id="sign-up-button" value="Sign Up" name="submit">
+                    </div>
 
-            <input type="email" name="email" placeholder="Email" required>
+                </form>
 
-            <input type="password" name="password" placeholder="Password" required>
+                <p id="switch-to-log-in" class="font-weight-bold btn">Log in instead</p>
 
-            <input type="checkbox" name="remember-sign-in">
+            </div>
 
-            <input type="hidden" name="signUp" value="0">
+            <div id="log-in" class="col-6 mx-auto mt-4">
 
-            <input type="submit" value="Sign In" name="submit">
+                <p>Log in using your email and password.</p>
 
-        </form>
+                <form method="post">
+
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+
+                    <div class="form-group form-check mx-auto text-center">
+                        <input type="checkbox" class="form-check-input" name="remember-me" id="remember-sign-in">
+                        <label class="form-check-label text-light" for="remember-sign-in">Remember me</label>
+                    </div>
+
+                    <div class="mx-auto text-center">     
+                        <input type="hidden" name="is-sign-up" value="0">
+                        <input type="submit" class="btn btn-secondary" id="log-in-button" value="Log In" name="submit">
+                    </div>
+
+                </form>
+
+                <p id="switch-to-sign-up" class="font-weight-bold btn">Sign up instead</p>
+
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+        <script src="javascript.js" type="text/javascript"></script>
 
     </body>
 
