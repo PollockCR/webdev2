@@ -129,7 +129,7 @@ function checkMe ($link) {
 
         $row = mysqli_fetch_row($result);
 
-        $_SESSION["email"] = $row["0"];
+        $_SESSION["email"] = mysqli_real_escape_string($link, $row["0"]);
 
         return true;
 
