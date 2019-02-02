@@ -1,16 +1,8 @@
 $("#log-in").hide();
 
-$("#switch-to-log-in").click(function () {
+$(".toggle-forms").click(function () {
 
-    $("#sign-up").hide();
-    $("#log-in").show();
-
-});
-
-$("#switch-to-sign-up").click(function () {
-
-    $("#log-in").hide();
-    $("#sign-up").show();
+    $("#sign-up").toggle();
+    $("#log-in").toggle();
 
 });
-

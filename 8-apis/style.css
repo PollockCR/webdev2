@@ -1,0 +1,42 @@
+.credit {
+
+    background-color:#626E86;
+    color:white;
+    text-decoration:none;
+    padding:4px 6px;
+    font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    line-height:1.2;
+    display:inline-block;border-radius:3px
+
+}
+
+html { 
+    
+  background: url(images/joakim-honkasalo-1260340-unsplash.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    
+}
+
+body {
+    
+    background: none !important;
+
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; 
+
+    display: flex;
+    align-items: center;    
+    
+}
+
+#credits {
+
+    position: absolute;
+    bottom: 0;
+
+}

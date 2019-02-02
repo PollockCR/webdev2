@@ -21,10 +21,10 @@ body {
 
 }
 
-#switch-to-sign-up, #switch-to-log-in {
+.toggle-forms {
 
-    color: #e0d1dd;
-
+    color: white !important;
+    
 }
 
 #sign-up-button {

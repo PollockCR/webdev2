@@ -63,7 +63,7 @@ include("form.php");
 
                 </form>
 
-                <p id="switch-to-log-in" class="font-weight-bold btn">Log in instead</p>
+                <p><a class="btn font-weight-bold toggle-forms">Log in instead</a></p>
 
             </div>
 
@@ -93,7 +93,7 @@ include("form.php");
 
                 </form>
 
-                <p id="switch-to-sign-up" class="font-weight-bold btn">Sign up instead</p>
+                <p><a class="btn font-weight-bold toggle-forms">Sign up instead</a></p>
 
             </div>
 
