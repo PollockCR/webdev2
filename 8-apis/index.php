@@ -4,37 +4,61 @@ $weather = "";
 
 $city = "";
 
+$key = "c603eab657a8b20f5b7c7479c265c2d8";
+
 if($_GET && array_key_exists("city", $_GET)){
 
-    $city_dash = str_replace(" ", "-", $_GET["city"]);
-
-    $file_headers = @get_headers("https://www.weather-forecast.com/locations/$city_dash/forecasts/latest");
+    $file_headers = "";
 
     $city = ucwords($_GET["city"]);
 
-    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+    $file_headers = @get_headers("http://api.openweathermap.org/data/2.5/weather?q=".$city."&appid=c603eab657a8b20f5b7c7479c265c2d8");
+
+    if(!$file_headers || (isset($file_headers[0]) && strpos($file_headers[0],"404"))) {
 
         $weather = '<div class="alert alert-danger" role="alert">The city '.$city.' could not be found. Please try again.</div>';
 
     } else {
 
-        $weather = file_get_contents("https://www.weather-forecast.com/locations/$city_dash/forecasts/latest");
+        $weatherArray = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$city."&appid=c603eab657a8b20f5b7c7479c265c2d8");
 
-        $weather = strstr($weather,'<span class="phrase">');
+        $weatherArray = json_decode($weatherArray, true);
 
-        $weather = strstr($weather, '</p>', true);
+        $weather = "<strong>$city Weather</strong>";
 
-        if(!$weather){
+        $weather .= "<br>Currently: ".$weatherArray["weather"][0]["description"];
 
-            $weather = '<div class="alert alert-danger" role="alert">There was an unknown error.</div>';
+        $tempCelcius = round($weatherArray["main"]["temp"] - 273.15);
 
-        } else {
+        $tempFarenheit = round($weatherArray["main"]["temp"] * 9 / 5 - 459.67);
 
-            $weather = '<div class="alert alert-secondary" role="alert"><strong>'.$city.":</strong> ".$weather.'</div>';
+        $weather .= "<br>Temperature: ".$tempCelcius."&deg;C | ".$tempFarenheit."&deg;F";
 
-        }
+        $windMS = round($weatherArray["wind"]["speed"]);
+
+        $windMPH = round($weatherArray["wind"]["speed"] * 2.23694);
+
+        $weather .= "<br>Wind: ".$windMS." m/s | ".$windMPH." mph";
+        
+        $weather = '<div class="alert alert-secondary" role="alert">'.$weather.'</div>';
 
     }
+
+}
+
+function getMinMaxTemp(){
+
+    $tempMinCelcius = round($weatherArray["main"]["temp_min"] - 273.15);
+
+    $tempMinFarenheit = round($weatherArray["main"]["temp_min"] * 9 / 5 - 459.67);
+
+    $weather .= "<br>Min: ".$tempMinCelcius."&deg;C | ".$tempMinFarenheit."&deg;F";
+
+    $tempMaxCelcius = round($weatherArray["main"]["temp_max"] - 273.15);
+
+    $tempMaxFarenheit = round($weatherArray["main"]["temp_max"] * 9 / 5 - 459.67);
+
+    $weather .= "<br>Max: ".$tempMaxCelcius."&deg;C | ".$tempMaxFarenheit."&deg;F";
 
 }
 
@@ -84,11 +108,11 @@ if($_GET && array_key_exists("city", $_GET)){
 
             <div class="container">
 
-                <div class="col-sm-8 mx-auto">
+                <div class="col-sm-5 mx-auto">
 
                     <?php 
 
-                    echo $weather;
+                    print_r($weather);
 
                     ?>
 
