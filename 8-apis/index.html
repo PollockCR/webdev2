@@ -35,7 +35,7 @@
         <div id="floating-panel">
             <input id="address" type="textbox" value="Black Rock City">
             <input id="submit" type="button" value="Determine Postcode">
-            <span id="postcode"></span>
+            <div id="postcode"></div>
         </div>
         <div id="map"></div>
         <script>
@@ -62,11 +62,13 @@
                         });
                         var postalCode = findPostalCode(results[0]["address_components"]);
                         if (postalCode){
-                            document.getElementById("postcode").innerHTML = "&nbsp;" + postalCode + "&nbsp;";
+                            document.getElementById("postcode").innerHTML = postalCode;
                         } else {
+                            document.getElementById("postcode").innerHTML = "";
                             alert("The postcode could not be determined for the location specified. Try being more specific.");
                         }
                     } else {
+                        document.getElementById("postcode").innerHTML = "";
                         alert('Geocode was not successful for the following reason: ' + status);
                     }
                 });
