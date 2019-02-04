@@ -1,6 +1,23 @@
 <?php 
+include("secrets.php");
 
-//$mapsResponse = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDADxomlDykaZzrt5uyJS185tG2fJ009MI");
+$consumer_key = CONSUMER_KEY;
+$consumer_secret = CONSUMER_SECRET;
+$access_token = ACCESS_TOKEN;
+$access_token_secret = ACCESS_TOKEN_SECRET;
+
+require "twitteroauth/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+$connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+
+//$statues = $connection->post("statuses/update", ["status" => "Tweeting from my website, holla."]);
+
+$content = $connection->get("account/verify_credentials");
+
+
+print_r($content);
 
 ?>
 
@@ -8,7 +25,7 @@
 
     <head>
 
-        <title>Google Maps - Geocoding an Address</title>
+        <title>Twitter API</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
