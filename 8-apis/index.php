@@ -40,15 +40,16 @@ $content = $connection->get("statuses/home_timeline", ["count" => "200"]);
             <?php
 
             foreach($content as $tweet){
-                                
+
                 if($tweet->favorite_count >= 2){
-                    $name = $tweet->user->name;
-                    $screen_name = $tweet->user->screen_name;
-                    $text = $tweet->text;
-                    echo "<p>".$name." @".$screen_name." ".$text."</p>";
+                    $id = $tweet->id;
+                    $formattedTweet = $connection->get("statuses/oembed", ["id" => $id] );
+                    if(isset($formattedTweet->html)){
+                        echo $formattedTweet->html;
+                    }
                 }
             }
-            
+
             ?>
 
 
@@ -59,6 +60,24 @@ $content = $connection->get("statuses/home_timeline", ["count" => "200"]);
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
         <script src="javascript.js"></script>
+
+        <script>window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                    t._e.push(f);
+                };
+
+                return t;
+            }(document, "script", "twitter-wjs"));
+        </script>
 
     </body>
 
