@@ -12,12 +12,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 $connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
 
-//$statues = $connection->post("statuses/update", ["status" => "Tweeting from my website, holla."]);
-
-$content = $connection->get("account/verify_credentials");
-
-
-print_r($content);
+$content = $connection->get("statuses/home_timeline", ["count" => "200"]);
 
 ?>
 
@@ -39,6 +34,25 @@ print_r($content);
     </head>
 
     <body>
+
+        <div class="container">
+
+            <?php
+
+            foreach($content as $tweet){
+                                
+                if($tweet->favorite_count >= 2){
+                    $name = $tweet->user->name;
+                    $screen_name = $tweet->user->screen_name;
+                    $text = $tweet->text;
+                    echo "<p>".$name." @".$screen_name." ".$text."</p>";
+                }
+            }
+            
+            ?>
+
+
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
