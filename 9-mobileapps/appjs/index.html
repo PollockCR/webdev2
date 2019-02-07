@@ -210,9 +210,22 @@
                 setupPageColour(page);
             });
 
-            App.controller('buttons', function (page) {
-                setupPageColour(page);
-            });
+
+			App.controller('buttons', function (page) {
+				setupPageColour(page);
+
+				$(page).find('.menu')
+					.on('click', function () {
+						App.dialog({
+							title        : 'This is a Dialog',
+							text         : 'Say stuff to the user and get them to respond',
+							okButton     : 'Submit',
+							cancelButton : 'Cancel'
+						}, function (choice) {
+							console.log(choice);
+						});
+					});
+			});
 
             App.controller('page2', function (page) {
                 setupPageColour(page);
