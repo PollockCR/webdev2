@@ -34,6 +34,9 @@
             </div>
 
             <div class="app-content">
+                <div class="app-section" id="result">
+
+                </div>
                 <div class="app-section">
                     From: 
                     <input type="email" class="app-input" placeholder="Sender email address" id="from" name="from">
@@ -43,8 +46,8 @@
                     <input type="email" class="app-input" placeholder="Recipient email address" id="to" name="to">
                 </div>
                 <form class="app-section">
-                    <input type="text" class="app-input" name="subject" placeholder="Subject">
-                    <textarea class="app-input" name="message" placeholder="Message"></textarea>
+                    <input type="text" class="app-input" name="subject" id="subject" placeholder="Subject">
+                    <textarea class="app-input" name="message" id="message" placeholder="Message"></textarea>
                     <div class="app-button green app-submit" id="send-button">Send</div>
                 </form>
             </div>
@@ -96,6 +99,8 @@
 
             App.controller('email', function (page) {
 
+                $(page).find("#result").hide();
+
                 if(typeof localStorage !== undefined){
 
                     if(localStorage.getItem("from") !== null){
@@ -114,7 +119,31 @@
                 $(page).find('#send-button')
                     .clickable()
                     .on('click', function () {
+
                     // send email
+                    $.ajax({
+                        type: 'GET',
+                        url: 'http://catherinepollock.com/9-mobileapps/appjs/sendemail.php?callback=response',
+                        // data to be added to query string:
+                        data: { to: $("#to").val(), from: $("#from").val(), subject: $("#subject").val(), message: $("#message").val()},
+                        // type of data we are expecting in return:
+                        dataType: 'jsonp',
+                        timeout: 3000,
+                        context: $('body'),
+                        success: function(data){
+                            if(data.success == true){
+                                $(page).find("#result").show();
+                                $(page).find("#result").html("Your email was sent successfully");
+                            } else {
+                                $(page).find("#result").show();
+                                $(page).find("#result").html("Your email could not be sent. Please try again later.");
+                            }
+                        },
+                        error: function(xhr, type){
+                            $(page).find("#result").show();
+                            $(page).find("#result").html("Your email could not be sent. Please try again later.");
+                        }
+                    })
 
                     if(typeof localStorage !== undefined){
 
@@ -128,7 +157,7 @@
 
                         } 
 
-                        if(toList == null || toList.length == 0 || $.inArray($("#to").val(), toList) == -1){
+                        if($("#to").val() !== "" && (toList == null || toList.length == 0 || $.inArray($("#to").val(), toList) == -1)){
 
                             toList.push($("#to").val());
                             toList.sort();
