@@ -176,30 +176,34 @@
         <script src="app.min.js"></script>
         <script>
             var oldColour = "";
+            var colourPages = [];
             function setupPageColour(page){
-                /*if (oldColour != "") {
-                    $(".app-topbar").addClass(oldColour);
-                }*/
+                var $topbar = $(page).find('.app-topbar');
+                colourPages.push($topbar);
+                if (oldColour) {
+                    $topbar.addClass(oldColour);
+                }
+            }
+
+            App.controller('home', function (page) {
+                setupPageColour(page);
+
                 $(page).find('ul.colour-picker li')
                     .clickable()
                     .on('click', function () {
                     var colour = $(this).data('colour');
 
-                    if (oldColour != "") {
-                        $(".app-topbar").each(function (index, value) {
-                            $(this).removeClass(oldColour);
-                        });   
+                    for (var i = 0; i < colourPages.length; i++) {
+                        if (oldColour) {
+                            colourPages[i].removeClass(oldColour);
+                        }
+                        if (colour) {
+                            colourPages[i].addClass(colour);
+                        }
                     }
-                    $(".app-topbar").each(function (index, value){
-                        $(this).addClass(colour);
-                    });
                     oldColour = colour;
 
                 });
-            }
-
-            App.controller('home', function (page) {
-                setupPageColour(page);
             });
 
             App.controller('lists', function (page) {
