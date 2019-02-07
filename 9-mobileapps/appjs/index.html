@@ -1,31 +1,154 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My App</title>
+        <title>Email Client</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
         <link rel="stylesheet" href="app.min.css">
         <style>
+            /* TODO */
         </style>
     </head>
 
     <body>
+        <div class="app-page" data-page="home">
+            <div class="app-topbar blue">
+                <div class="app-title">Home page</div>
+            </div>
+            <div class="app-content">
+                <p class="app-section">
+                    Click below to send an email.
+                </p>
+                <div class="app-section" id="contacts">
+
+                </div>
+                <div class="app-section">
+                    <div class="app-button" id="new-recipient">Send to a new user</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page" data-page="email">
+            <div class="app-topbar blue">
+                <div class="app-title">Send an Email</div>
+                <div class="left app-button" data-back data-autotitle></div>
+            </div>
+
+            <div class="app-content">
+                <div class="app-section">
+                    From: 
+                    <input type="email" class="app-input" placeholder="Sender email address" id="from" name="from">
+                </div>
+                <div class="app-section">
+                    To: 
+                    <input type="email" class="app-input" placeholder="Recipient email address" id="to" name="to">
+                </div>
+                <form class="app-section">
+                    <input type="text" class="app-input" name="subject" placeholder="Subject">
+                    <textarea class="app-input" name="message" placeholder="Message"></textarea>
+                    <div class="app-button green app-submit" id="send-button">Send</div>
+                </form>
+            </div>
+        </div>
+
         <script src="zepto.js"></script>
         <script src="app.min.js"></script>
         <script>
-            if(typeof(Storage) !== undefined){
-                
-                var names = [];
-                names[0] = prompt("New member name?");
-                localStorage.setItem("names", JSON.stringify(names));
-                
-                var storedNames = JSON.parse(localStorage.getItem("names"));
 
-                alert(storedNames[0]);
+            App.controller('home', function (page) {
+                if(typeof localStorage !== undefined){
 
-            } else {
+                    $(page).find("#new-recipient")
+                        .clickable()
+                        .on("click", function () {
+                        if(localStorage.getItem("to") !== null){
+                            localStorage.removeItem("to");
+                        }
+                        App.load("email");
+                    });
 
-                alert("Local storage is not enabled. You may experience performance issues.");
+                    if(localStorage.getItem("to-list") !== null){
 
+                        $(page).find("#contacts").show();
+
+                        var toList = JSON.parse(localStorage.getItem("to-list"));
+
+                        $.each(toList, function (index, value) {
+
+                            $(page).find("#contacts").append('<div class="app-button redirect">' + value + '</div>');
+
+                        });
+
+                        $(page).find(".redirect")
+                            .clickable()
+                            .on("click", function () {
+                            localStorage.setItem("to", $(this).html());
+                            App.load("email");
+                        });
+                    } else {
+
+                        $(page).find("#contacts").hide();
+
+                    }
+
+
+                } 
+            });
+
+            App.controller('email', function (page) {
+
+                if(typeof localStorage !== undefined){
+
+                    if(localStorage.getItem("from") !== null){
+
+                        $(page).find("#from").val(localStorage.getItem("from"));
+
+                    }
+                    if(localStorage.getItem("to") !== null){
+
+                        $(page).find("#to").val(localStorage.getItem("to"));
+
+                    }
+
+                } 
+
+                $(page).find('#send-button')
+                    .clickable()
+                    .on('click', function () {
+                    // send email
+
+                    if(typeof localStorage !== undefined){
+
+                        var toList = [];
+
+                        localStorage.setItem("from", $("#from").val());
+
+                        if(localStorage.getItem("to-list") !== null){
+
+                            toList = JSON.parse(localStorage.getItem("to-list"));                         
+
+                        } 
+
+                        if(toList == null || toList.length == 0 || $.inArray($("#to").val(), toList) == -1){
+
+                            toList.push($("#to").val());
+                            toList.sort();
+                            localStorage.setItem("to-list", JSON.stringify(toList));
+
+                        }
+
+                    } else {
+
+                        alert("Local storage is not enabled. You may experience performance issues.");
+                    }
+
+                });
+
+            });
+
+            try {
+                App.restore();
+            } catch (err) {
+                App.load('home');
             }
         </script>
     </body>
