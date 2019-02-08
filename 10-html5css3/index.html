@@ -10,38 +10,45 @@
 
     <body>
 
-        <form id="target" action="proccessform.php">
-            
-            <p><input type="text" placeholder="Insert name here"></p>
-            
-            <p><input type="text" autofocus placeholder="Autofocus"></p>
-            
-            <p><input type="text" autocomplete="off" placeholder="Autocomplete off"></p>
-            
-            <p><input type="text" required placeholder="Required"></p>
-            
-            <p><input type="email" placeholder="Email"></p>
-            
-            <p><input type="text" pattern="[0-9]" placeholder="Pattern"></p>
-            
-            <datalist id="animals">
-                <option value="Cat">Cat</option>
-                <option value="Dog">Dog</option>
-                <option value="Mouse">Mouse</option>
-                <option value="Rabbit">Rabbit</option>
-                <option value="Frog">Frog</option>
-            </datalist>
-            
-            <p><input type="text" list="animals" placeholder="Autocomplete"></p>
-            
-            <p><input type="file" multiple placeholder="Multiple file upload"></p>
+        <video width="320" height="240" controls id="video">
 
-            <p><input type="submit" formaction="example.php" formmethod="get" value="Submit with GET"></p>
-            <p><input type="submit" formaction="nextpage.php" formmethod="post" value="Submit with POST"></p>
-            
-        </form>
+            <source src="media/samplevideo.mp4" type="video/mp4">
+            Please upgrade your browser!
+
+        </video>
+
+        <button id="play">Play</button>
         
-        <input type="text" form="target" placeholder="Outside form">
+        <audio controls>
+    
+            <source src="media/sampleaudio.mp3" type="audio/mpeg">
+            Please upgrade your browser!
+        
+        </audio>
+
+        <script>
+
+            var isPlaying = false;
+            var video = document.getElementById("video");
+            var playButton = document.getElementById("play");
+
+            playButton.onclick = function () {
+                if(isPlaying){
+                    video.pause();
+                } else {
+                    video.play();
+                }
+            }   
+            video.onplaying = function() {
+                isPlaying = true;
+                playButton.innerHTML = "Pause";
+            };
+            video.onpause = function() {
+                isPlaying = false;
+                playButton.innerHTML = "Play";
+            };
+
+        </script>
 
     </body>
 </html>
