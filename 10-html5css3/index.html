@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML 5 &amp; CSS 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+
+        <form id="target" action="proccessform.php">
+            
+            <p><input type="text" placeholder="Insert name here"></p>
+            
+            <p><input type="text" autofocus placeholder="Autofocus"></p>
+            
+            <p><input type="text" autocomplete="off" placeholder="Autocomplete off"></p>
+            
+            <p><input type="text" required placeholder="Required"></p>
+            
+            <p><input type="email" placeholder="Email"></p>
+            
+            <p><input type="text" pattern="[0-9]" placeholder="Pattern"></p>
+            
+            <datalist id="animals">
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Frog">Frog</option>
+            </datalist>
+            
+            <p><input type="text" list="animals" placeholder="Autocomplete"></p>
+            
+            <p><input type="file" multiple placeholder="Multiple file upload"></p>
+
+            <p><input type="submit" formaction="example.php" formmethod="get" value="Submit with GET"></p>
+            <p><input type="submit" formaction="nextpage.php" formmethod="post" value="Submit with POST"></p>
+            
+        </form>
+        
+        <input type="text" form="target" placeholder="Outside form">
+
+    </body>
+</html>
