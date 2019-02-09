@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>HTML 5 &amp; CSS 3</title>
+        <title>What time is it?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                width: 100vw;
+                height: 100vh;
+            }
 
             #myCanvas {
-                border: 1px solid grey;
+                display: block;
+                margin: auto;
+                padding: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
             }
 
         </style>
@@ -15,23 +28,75 @@
 
     <body>
 
-        <canvas id="myCanvas" width="600" height="400"></canvas>
+        <canvas id="myCanvas" width="600" height="600"></canvas>
 
         <script>
 
-            var myCanvas = document.getElementById("myCanvas");
-            var context = myCanvas.getContext("2d");
-            var gradient = context.createLinearGradient(200, 100, 400, 300);
-            var textGradient = context.createLinearGradient(200, 50, 300, 50);
-            
-            gradient.addColorStop(0, "white");
-            gradient.addColorStop(1, "#DEB278");
-            
-            textGradient.addColorStop(0, "red");
-            textGradient.addColorStop(1, "green");
+            window.requestAnimationFrame(clock);
 
-            context.fillStyle = gradient;
-            context.fillRect(200, 100, 200, 200);
+            function clock(){
+
+
+                var myCanvas = document.getElementById("myCanvas");
+                var context = myCanvas.getContext("2d");
+                context.clearRect(0, 0, 600, 600);
+                context.save()
+
+                // clock face
+                context.fillStyle = "#000000";
+                context.beginPath();
+                context.arc(300, 300, 300, 0, 2 * Math.PI);
+                context.fill();
+
+                // numbers
+                context.fillStyle = "#FFFFFF";
+                context.font = "30px Arial";
+
+                for(var i = 1; i <= 12; i++){
+                    var x = 280 * Math.cos(i * Math.PI / 6 - Math.PI * .5) + 290;
+                    var y = 280 * Math.sin(i * Math.PI / 6 - Math.PI * .5) + 310;
+                    context.fillText(i, x, y);
+                }
+                context.save();
+
+                // get time
+                var now = new Date();
+                var sec = now.getSeconds();
+                var min = now.getMinutes();
+                var hr  = now.getHours();
+                hr = hr >= 12 ? hr - 12 : hr;
+
+                context.arc(300, 300, 0, 0, 2 * Math.PI);
+                context.strokeStyle = '#FFFFFF';
+                context.lineWidth = 8;
+
+                // write Hours
+                /*
+                context.moveTo(300, 300);
+                context.lineTo(400, 300);
+                context.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) * sec);
+
+                context.stroke();
+                */
+
+                // write Minutes
+
+                //context.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
+
+
+                // Write seconds
+                //context.rotate(sec * Math.PI / 30);
+
+
+
+                context.restore();
+
+                //window.requestAnimationFrame(clock);
+
+            }
+
+
+            /*
 
             context.lineWidth = 2;
             context.strokeStyle = "#A38EB4";
@@ -42,14 +107,13 @@
             context.lineTo(400, 300);
             context.stroke();
 
-            context.beginPath();
-            context.arc(100, 100, 50, Math.PI, 2 * Math.PI * .75);
-            context.stroke();
-            
+
+
             context.fillStyle = textGradient;
             context.font = "20px Arial";
             context.fillText("My Canvas", 200, 50);
-            
+            */
+
         </script>
 
     </body>
