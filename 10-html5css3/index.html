@@ -54,13 +54,15 @@
                 context.arc(radius, radius, 3, 0, 2 * Math.PI);
                 context.fill();
 
-                // Numbers
+                // Write numbers
                 context.fillStyle = "#FFFFFF";
                 context.font = "30px Arial";
+                context.textAlign = "center";
+                context.textBaseline = "middle";
 
                 for(var i = 1; i <= 12; i++){
-                    var x = (radius - 20) * Math.cos(i * Math.PI / 6 - Math.PI * .5) + (radius - 10);
-                    var y = (radius - 20) * Math.sin(i * Math.PI / 6 - Math.PI * .5) + (radius + 10);
+                    var x = (radius - 30) * Math.cos(i * Math.PI / 6 - Math.PI * .5) + (radius);
+                    var y = (radius - 30) * Math.sin(i * Math.PI / 6 - Math.PI * .5) + (radius);
                     context.fillText(i, x, y);
                 }
 
@@ -80,7 +82,7 @@
                 // Move registration point back to the top left corner of canvas
                 context.translate(-canvasSize/2, -canvasSize/2);
 
-                // write Hours
+                // Write Hours
                 context.strokeStyle = '#FFFFFF';
                 context.lineWidth = 8;
                 context.moveTo(radius, radius);
@@ -99,7 +101,7 @@
                 // Move registration point back to the top left corner of canvas
                 context.translate(-canvasSize/2, -canvasSize/2);
 
-                // write Minutes
+                // Write Minutes
                 context.strokeStyle = '#FFFFFF';
                 context.lineWidth = 6;
                 context.moveTo(radius, 100);
@@ -128,26 +130,7 @@
                 context.save();
 
             }
-
-
-            /*
-
-            context.lineWidth = 2;
-            context.strokeStyle = "#A38EB4";
-
-            context.moveTo(200, 300);
-            context.lineTo(400, 100);
-            context.moveTo(200, 100);
-            context.lineTo(400, 300);
-            context.stroke();
-
-
-
-            context.fillStyle = textGradient;
-            context.font = "20px Arial";
-            context.fillText("My Canvas", 200, 50);
-            */
-
+            
         </script>
 
     </body>
