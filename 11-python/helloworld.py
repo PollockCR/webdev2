@@ -1,52 +1,21 @@
 #! /usr/bin/python
 
-print ("Content-type: text/html")
+foods = ["noodles", "cheese", "bread", "carrots", "eggs"]
 
-print ("")
+for i in range(5, 11):
+    print (i)
 
-print ("Hello world!")
+for food in foods:
+    print ("I like eating " + food)
 
-age = 35
+x = 0
+while (x <= 10):
+    print (x)
+    x += 1
+    
+# dictionary containing 4 names (keys) and ages (values)
 
-print (age)
+ages = {"Candice": 42, "Maurice": 12, "Izabel": 20, "Mikey": 52}
 
-name = "Cat"
-
-print (name)
-
-number = "5"
-
-print (int(number) * age)
-
-myStr = "My name is "
-
-print (myStr[0:5])
-
-print (myStr[5])
-
-print (myStr + name)
-
-myList = ["Cat", "Dog", "Mouse", "Turtle", "Snake"]
-
-print (myList)
-
-print (myList[2:4])
-
-myTuple = (1, 2, 3, 4)
-
-print (myTuple[2]);
-
-fam = {}
-
-fam["dad"] = "Rob"
-
-fam["mom"] = "Kirsten"
-
-fam[1] = "Tommy"
-
-fam[2] = "Ralphie"
-
-print (fam)
-print (fam["mom"])
-print (fam.keys())
-print (fam.values())
+for name, age in ages.items():
+    print (name + " is " + str(age))
