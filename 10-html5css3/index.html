@@ -3,125 +3,75 @@
 
     <head>
 
-        <title>Other HTML5 Features</title>
+        <title>Gradients and Shadows</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <style>
 
-            a:hover {
-                font-weight: bold;
+            #gradient {
+                width: 500px;
+                height: 300px; 
+                background-color: blue; /* for browsers that do not support */
+                background: linear-gradient(to bottom right, red, orange, yellow, green, blue, purple);
             }
 
-            input:focus {
-                background-color: blue;
+            #challenge-gradient {
+                width: 500px;
+                height: 300px; 
+                background-color: blue; /* for browsers that do not support */
+                background: linear-gradient(to top right, yellow, green);
             }
 
-            input:enabled {
-
+            #radial-gradient {
+                width: 500px;
+                height: 300px; 
+                background-color: red; /* for browsers that do not support */
+                background: radial-gradient(white, blue);
             }
 
-            input:disabled {
-
-            }
-
-            input:checked {
-
-            }
-
-            p:first-child {
-                color: aqua;
-            }
-
-            p:last-child {
-                font-size: 80%;
-            }
-
-            p:only-child {
-                font-weight: bold;
-            }
-
-            h1:first-of-type{
-                color: hotpink;
-            }
-
-            p:last-of-type{
-                background-color: beige;
-            }
-
-            p:only-of-type{
-                text-decoration: underline;
+            h2 {
+                text-shadow: 2px 2px 4px pink;
+                color: white;
             }
             
-            tr:nth-child(2n){
-                /* every other row (can also use odd/even)
-                nth-last-child - count backwards
-                nth-of-type - only count a certain type (e.g. only count p)
-                */
-                background-color: aliceblue;
-            }
-            
-            div:empty {
-                display: none;
-            }
-            
-            h3:not(.green){
-                color: pink;
-            }
-            
-            :not(div){
-                
-            }
-            
-            p:first-letter{
-                /* first-line */
-                font-size: 120%;
+            h3 {
+                text-shadow: 0px 0px 4px orange;
+                color: white;
             }
 
-            a:after {
-                content: " \["attr(href)"\]";
+            #shadow {
+                width: 200px;
+                height: 200px;
+                box-shadow: 3px 3px 3px pink;
+                background-color: azure;
             }
+
         </style>
 
     </head>
 
     <body>
 
-        <h1>I am a heading</h1>
+        <h2>This text has a shadow.</h2>
+        
+        <h3>This text glows.</h3>
+        
+        <div id="shadow"></div>
 
-        <input type="text">
+        <div id="gradient">
 
-        <div>
-
-            <h3>I am an h3 heading.</h3>
-
-            <p>I am a paragraph.</p>
-
-            <p>I'm in the div!</p>
-
-            <a target="_blank" href="http://example.com">I am a link.</a>
+            <h1>This is a gradient</h1>
 
         </div>
 
-        <p>I'm outside the div!</p>
-
-        <a href="http://www.google.com">I am another link.</a>
-
-        <div>
-
-            <p>I am a lonely paragraph.</p>
+        <div id="challenge-gradient">
 
         </div>
-        
-        <table>
-            <tr><td>Cat</td></tr>
-            <tr><td>Dog</td></tr>
-            <tr><td>Mouse</td></tr>
-            <tr><td>Pig</td></tr>
 
-        </table>
-        
-        <div></div>
+        <div id="radial-gradient">
+
+        </div>
 
     </body>
 
