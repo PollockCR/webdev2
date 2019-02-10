@@ -1,23 +1,34 @@
 #! /usr/bin/python
 
-import math
+print ("Content-type: text/html")
+print ("")
 
-primeNums = [2]
+def saySomething(something):
+    print (something)
+    
+saySomething("Milkshakes")
 
-num = 3;
+def multiplyTwoNumbers(x, y):
+    return x * y
 
-prime = True
+print (multiplyTwoNumbers(4, 2))
 
-while len(primeNums) < 50:
-    #for i in range(to_integral_exact(sqrt(num))):
-    i = 3
-    while prime and i <= math.sqrt(num):
-        if num % i == 0.00:
-            prime = False
-        i += 2
-    if prime:
-        primeNums.append(num)
-    prime = True
-    num += 2;
+def highestCommonFactor(x, y):
+    div = x if x < y else y
+    while div > 0:
+        if x % div == 0.0 and y % div == 0.0:
+            return div
+        div = div - 1
+    return 0
 
-print (primeNums)
+print (highestCommonFactor(9,6))
+
+a = 4
+b = 7
+
+def addTwoNumbers():
+    a = 10
+    return a + b
+
+print (addTwoNumbers())
+print (a)
