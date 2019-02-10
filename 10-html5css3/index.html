@@ -1,136 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>What time is it?</title>
+        <title>Other HTML5 Features</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <style>
-            html, body {
-                width: 100%;
-                height: 100%;
-                width: 100vw;
-                height: 100vh;
+
+            article {
+                color: green;
             }
 
-            #myCanvas {
-                display: block;
-                margin: auto;
-                padding: 0;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
+            header, footer, article, section, nav, menu {
+                display: block; /* compatibility with IE */
             }
 
         </style>
+
     </head>
 
     <body>
 
-        <canvas id="myCanvas" width="600" height="600"></canvas>
+        <article>
+
+            This is some content!
+
+        </article>
+
+        <container>
+
+            I am a container!
+
+        </container>
+
+        <figure>
+
+            <img src="media/lionfish.jpg" alt="Lionfish" data-description="Fish" id="lionfish">
+
+            <figcaption><mark>Lionfish</mark> <small>Wikipedia</small></figcaption>
+
+        </figure>
+
+        <input type="range" step="10" min="0" max="100">
+
+        <div contenteditable="true">
+            
+            This text is editable!
+            
+        </div>
 
         <script>
 
-            setInterval(tellTime, 100);
+            document.createElement("container");
+            console.log(document.getElementById("lionfish").getAttribute("data-description"));
 
-            var myCanvas = document.getElementById("myCanvas");
-            var context = myCanvas.getContext("2d");
-
-            function tellTime(){
-
-                var canvasSize = 600;
-                var radius = canvasSize / 2;
-                context.clearRect(0, 0, canvasSize, canvasSize);
-                context.restore();
-                context.save();
-
-                // Clock face
-                context.fillStyle = "#000000";
-                context.beginPath();
-                context.arc(radius, radius, radius, 0, 2 * Math.PI);
-                context.fill();
-                context.beginPath();
-                context.arc(radius, radius, 3, 0, 2 * Math.PI);
-                context.fill();
-
-                // Write numbers
-                context.fillStyle = "#FFFFFF";
-                context.font = "30px Arial";
-                context.textAlign = "center";
-                context.textBaseline = "middle";
-
-                for(var i = 1; i <= 12; i++){
-                    var x = (radius - 30) * Math.cos(i * Math.PI / 6 - Math.PI * .5) + (radius);
-                    var y = (radius - 30) * Math.sin(i * Math.PI / 6 - Math.PI * .5) + (radius);
-                    context.fillText(i, x, y);
-                }
-
-                // Get time
-                var now = new Date();
-                var sec = now.getSeconds();
-                var min = now.getMinutes();
-                var hr  = now.getHours();
-                hr = hr >= 12 ? hr - 12 : hr;
-
-                // Move registration point to the center of the canvas
-                context.translate(canvasSize/2, canvasSize/2);
-
-                // Rotate 
-                context.rotate(hr * (Math.PI / 6) + (Math.PI / 180) * min + (Math.PI / 21600) * sec);
-
-                // Move registration point back to the top left corner of canvas
-                context.translate(-canvasSize/2, -canvasSize/2);
-
-                // Write Hours
-                context.strokeStyle = '#FFFFFF';
-                context.lineWidth = 8;
-                context.moveTo(radius, radius);
-                context.lineTo(radius, 150);
-                context.stroke();
-                context.restore();
-                context.save();
-
-                // Move registration point to the center of the canvas
-                context.translate(canvasSize/2, canvasSize/2);
-
-                // Rotate 
-                //console.log((Math.PI / 180) * min + (Math.PI / 1800) * sec);
-                context.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
-
-                // Move registration point back to the top left corner of canvas
-                context.translate(-canvasSize/2, -canvasSize/2);
-
-                // Write Minutes
-                context.strokeStyle = '#FFFFFF';
-                context.lineWidth = 6;
-                context.moveTo(radius, 100);
-                context.lineTo(radius, radius);
-                context.stroke();
-                context.restore();
-                context.save();
-
-                // Move registration point to the center of the canvas
-                context.translate(canvasSize/2, canvasSize/2);
-
-                // Rotate 
-                //console.log(sec);
-                context.rotate(sec * Math.PI / 30);
-
-                // Move registration point back to the top left corner of canvas
-                context.translate(-canvasSize/2, -canvasSize/2);
-
-                // Write seconds
-                context.strokeStyle = '#FFFFFF';
-                context.lineWidth = 4;
-                context.moveTo(radius, 80);
-                context.lineTo(radius, radius);
-                context.stroke();
-                context.restore();
-                context.save();
-
-            }
-            
         </script>
 
     </body>
