@@ -9,39 +9,78 @@
 
         <style>
 
-            div p {
-                font-style: italic;
+            a:hover {
+                font-weight: bold;
             }
 
-            h3 ~ p {
-                /* p w/ h3 in parent */
+            input:focus {
+                background-color: blue;
+            }
+
+            input:enabled {
+
+            }
+
+            input:disabled {
+
+            }
+
+            input:checked {
+
+            }
+
+            p:first-child {
+                color: aqua;
+            }
+
+            p:last-child {
+                font-size: 80%;
+            }
+
+            p:only-child {
+                font-weight: bold;
+            }
+
+            h1:first-of-type{
+                color: hotpink;
+            }
+
+            p:last-of-type{
+                background-color: beige;
+            }
+
+            p:only-of-type{
+                text-decoration: underline;
+            }
+            
+            tr:nth-child(2n){
+                /* every other row (can also use odd/even)
+                nth-last-child - count backwards
+                nth-of-type - only count a certain type (e.g. only count p)
+                */
+                background-color: aliceblue;
+            }
+            
+            div:empty {
+                display: none;
+            }
+            
+            h3:not(.green){
                 color: pink;
             }
-
-            h3 + p {
-                /* p immediately after h3 */
-                font-size: 150%;
+            
+            :not(div){
+                
             }
-
-            a[target] {
-                color: yellow;
-            }
-
-            a[href="http://www.google.com"] {
-                /* element w/ particular attribute */
+            
+            p:first-letter{
+                /* first-line */
                 font-size: 120%;
             }
 
-            a[href*="google"] {
-                /*
-                *= contains
-                ^= begins w/
-                ~= has value between two spaces
-                |= has value seperated by hyphens (-)
-                */
-                color: red;
+            a:after {
+                content: " \["attr(href)"\]";
             }
-
         </style>
 
     </head>
@@ -49,6 +88,8 @@
     <body>
 
         <h1>I am a heading</h1>
+
+        <input type="text">
 
         <div>
 
@@ -58,13 +99,29 @@
 
             <p>I'm in the div!</p>
 
-            <a target="_blank" href="">I am a link.</a>
+            <a target="_blank" href="http://example.com">I am a link.</a>
 
         </div>
 
         <p>I'm outside the div!</p>
 
         <a href="http://www.google.com">I am another link.</a>
+
+        <div>
+
+            <p>I am a lonely paragraph.</p>
+
+        </div>
+        
+        <table>
+            <tr><td>Cat</td></tr>
+            <tr><td>Dog</td></tr>
+            <tr><td>Mouse</td></tr>
+            <tr><td>Pig</td></tr>
+
+        </table>
+        
+        <div></div>
 
     </body>
 
