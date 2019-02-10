@@ -1,21 +1,23 @@
 #! /usr/bin/python
 
-foods = ["noodles", "cheese", "bread", "carrots", "eggs"]
+import math
 
-for i in range(5, 11):
-    print (i)
+primeNums = [2]
 
-for food in foods:
-    print ("I like eating " + food)
+num = 3;
 
-x = 0
-while (x <= 10):
-    print (x)
-    x += 1
-    
-# dictionary containing 4 names (keys) and ages (values)
+prime = True
 
-ages = {"Candice": 42, "Maurice": 12, "Izabel": 20, "Mikey": 52}
+while len(primeNums) < 50:
+    #for i in range(to_integral_exact(sqrt(num))):
+    i = 3
+    while prime and i <= math.sqrt(num):
+        if num % i == 0.00:
+            prime = False
+        i += 2
+    if prime:
+        primeNums.append(num)
+    prime = True
+    num += 2;
 
-for name, age in ages.items():
-    print (name + " is " + str(age))
+print (primeNums)
