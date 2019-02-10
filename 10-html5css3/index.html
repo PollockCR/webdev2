@@ -8,43 +8,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <style>
-
-            #gradient {
-                width: 500px;
-                height: 300px; 
-                background-color: blue; /* for browsers that do not support */
-                background: linear-gradient(to bottom right, red, orange, yellow, green, blue, purple);
-            }
-
-            #challenge-gradient {
-                width: 500px;
-                height: 300px; 
-                background-color: blue; /* for browsers that do not support */
-                background: linear-gradient(to top right, yellow, green);
-            }
-
-            #radial-gradient {
-                width: 500px;
-                height: 300px; 
-                background-color: red; /* for browsers that do not support */
-                background: radial-gradient(white, blue);
-            }
-
-            h2 {
-                text-shadow: 2px 2px 4px pink;
-                color: white;
-            }
-            
-            h3 {
-                text-shadow: 0px 0px 4px orange;
-                color: white;
-            }
-
-            #shadow {
+            #box {
                 width: 200px;
                 height: 200px;
-                box-shadow: 3px 3px 3px pink;
-                background-color: azure;
+                background-color: lightcoral;
+                border-radius: 20px;
+                transition: 1s ease-in-out;
+                font-family: "Arial";
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 150%;
+            }
+
+            #box:hover {
+                /*transform: translate(50px, 50px);
+                transform: rotate(40deg);
+                transform: scale(.5, 2);
+                transform: skew(20deg, 30deg);*/
+                
+                transform: rotateX(180deg);
+                
             }
 
         </style>
@@ -53,24 +38,8 @@
 
     <body>
 
-        <h2>This text has a shadow.</h2>
-        
-        <h3>This text glows.</h3>
-        
-        <div id="shadow"></div>
-
-        <div id="gradient">
-
-            <h1>This is a gradient</h1>
-
-        </div>
-
-        <div id="challenge-gradient">
-
-        </div>
-
-        <div id="radial-gradient">
-
+        <div id="box">
+            This is only a box.
         </div>
 
     </body>
