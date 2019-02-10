@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html>
+
     <head>
+
         <title>Other HTML5 Features</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <style>
 
-            article {
-                color: green;
+            div p {
+                font-style: italic;
             }
 
-            header, footer, article, section, nav, menu {
-                display: block; /* compatibility with IE */
+            h3 ~ p {
+                /* p w/ h3 in parent */
+                color: pink;
+            }
+
+            h3 + p {
+                /* p immediately after h3 */
+                font-size: 150%;
+            }
+
+            a[target] {
+                color: yellow;
+            }
+
+            a[href="http://www.google.com"] {
+                /* element w/ particular attribute */
+                font-size: 120%;
+            }
+
+            a[href*="google"] {
+                /*
+                *= contains
+                ^= begins w/
+                ~= has value between two spaces
+                |= has value seperated by hyphens (-)
+                */
+                color: red;
             }
 
         </style>
@@ -20,40 +48,24 @@
 
     <body>
 
-        <article>
+        <h1>I am a heading</h1>
 
-            This is some content!
+        <div>
 
-        </article>
+            <h3>I am an h3 heading.</h3>
 
-        <container>
+            <p>I am a paragraph.</p>
 
-            I am a container!
+            <p>I'm in the div!</p>
 
-        </container>
+            <a target="_blank" href="">I am a link.</a>
 
-        <figure>
-
-            <img src="media/lionfish.jpg" alt="Lionfish" data-description="Fish" id="lionfish">
-
-            <figcaption><mark>Lionfish</mark> <small>Wikipedia</small></figcaption>
-
-        </figure>
-
-        <input type="range" step="10" min="0" max="100">
-
-        <div contenteditable="true">
-            
-            This text is editable!
-            
         </div>
 
-        <script>
+        <p>I'm outside the div!</p>
 
-            document.createElement("container");
-            console.log(document.getElementById("lionfish").getAttribute("data-description"));
-
-        </script>
+        <a href="http://www.google.com">I am another link.</a>
 
     </body>
+
 </html>
