@@ -2,6 +2,7 @@
 
 import cgi
 import random
+import copy
 
 print("Content-type: text/html")
 print("")
@@ -18,20 +19,23 @@ def playGame():
         guessCount += 1
         
 def makeGuess(answer):
+    answerCopy = copy.deepcopy(answer)
     guess = [int(x) for x in str(input("Enter your guess: "))]
-    print(guess)
     response = ""
-    if guess == answer:
+    if guess == answerCopy:
         return True
     else:
         for i in range(0,4):
-            if guess[i] == answer[i]:
+            if guess[i] == answerCopy[i]:
                 response += "+ "
                 guess[i] = 0
-        for aPeg in answer:
-            for gPeg in guess:
-                if gPeg == aPeg:
+                answerCopy[i] = -1
+        for i in range(0,4):
+            for j in range(0,4):
+                if guess[i] == answerCopy[j]:
                     response += "- "
+                    guess[i] = 0
+                    answerCopy[j] = -1
         print(response)
         return False
     
