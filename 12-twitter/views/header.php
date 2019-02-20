@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="./style.css">
 
-        <title>Hello, world!</title>
+        <title>Wannabe Twitter</title>
     </head>
     <body class="d-flex flex-column h-100">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="http://catherinepollock.com/12-twitter/">Twitter<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="http://catherinepollock.com/12-twitter/">Wannabe Twitter<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=timeline">Timeline</a>
@@ -35,27 +35,74 @@
                     </li>
                 </ul>
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginSignupModal">
-                    Login/Signup
+                <!-- Button trigger sign up modal -->
+                <button type="button" class="btn btn-secondary mr-3" data-toggle="modal" data-target="#signupModal">
+                    Sign up
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="loginSignupModal" tabindex="-1" role="dialog" aria-labelledby="loginSignupModalLabel" aria-hidden="true">
+                <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="loginSignupModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="signupModalLabel">Sign up</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <form>
+                                    <div class="form-group">
+                                        <label for="signupEmail">Email address</label>
+                                        <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="signupPassword">Password</label>
+                                        <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                                    </div>
+                                </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-primary">Sign up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Button trigger login modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                    Login
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="loginEmail">Email address</label>
+                                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loginPassword">Password</label>
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                    </div>
+                                    <input type="hidden" name="loginActive" id="loginActive" value="1">
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Login</button>
                             </div>
                         </div>
                     </div>
