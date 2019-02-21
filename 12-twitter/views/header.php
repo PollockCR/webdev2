@@ -50,8 +50,8 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <form>
+                            <form id="signupForm">
+                                <div class="modal-body">
                                     <div class="form-group">
                                         <label for="signupEmail">Email address</label>
                                         <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email">
@@ -61,19 +61,19 @@
                                         <label for="signupPassword">Password</label>
                                         <input type="password" class="form-control" id="signupPassword" placeholder="Password">
                                     </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Sign up</button>
-                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary" value="Sign up">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Button trigger login modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                    Login
+                    Log in
                 </button>
 
                 <!-- Modal -->
@@ -81,13 +81,14 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                                <h5 class="modal-title" id="loginModalLabel">Log in</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <form>
+                            <form id="loginForm">
+
+                                <div class="modal-body">
                                     <div class="form-group">
                                         <label for="loginEmail">Email address</label>
                                         <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
@@ -98,12 +99,12 @@
                                         <input type="password" class="form-control" id="loginPassword" placeholder="Password">
                                     </div>
                                     <input type="hidden" name="loginActive" id="loginActive" value="1">
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Login</button>
-                            </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" id="loginSubmit" class="btn btn-primary" value="Log in">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
