@@ -1,7 +1,15 @@
-$("form").submit(function (event) {
+$("#loginForm").submit(function (event) {
     
     event.preventDefault();
     
-    alert("Submitted");
+    $.ajax({
+        type: "POST",
+        url: "actions.php?action=login",
+        data: "email=" + $("#loginEmail").val() + "&password=" + $("#loginPassword").val(),
+        success: function(result) {
+            alert(result)
+        }
+        
+    })
     
 })

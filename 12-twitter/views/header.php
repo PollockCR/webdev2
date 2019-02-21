@@ -50,7 +50,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="signupForm">
+                            <form id="signupForm" method="post">
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="signupEmail">Email address</label>
@@ -86,7 +86,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="loginForm">
+                            <form id="loginForm" method="post">
 
                                 <div class="modal-body">
                                     <div class="form-group">
