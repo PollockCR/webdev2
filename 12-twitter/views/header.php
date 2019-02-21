@@ -98,11 +98,10 @@
                                         <label for="loginPassword">Password</label>
                                         <input type="password" class="form-control" id="loginPassword" placeholder="Password">
                                     </div>
-                                    <input type="hidden" name="loginActive" id="loginActive" value="1">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" id="loginSubmit" class="btn btn-primary" value="Log in">
+                                    <input type="submit" class="btn btn-primary" value="Log in">
                                 </div>
                             </form>
                         </div>
