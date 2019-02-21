@@ -54,12 +54,12 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="signupEmail">Email address</label>
-                                        <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
 
                                     </div>
                                     <div class="form-group">
                                         <label for="signupPassword">Password</label>
-                                        <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                                        <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -91,12 +91,12 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="loginEmail">Email address</label>
-                                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
 
                                     </div>
                                     <div class="form-group">
                                         <label for="loginPassword">Password</label>
-                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
