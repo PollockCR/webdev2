@@ -2,11 +2,11 @@
 
     include("secrets.php");
 
-    $username = USERNAME;
+    $dbUsername = USERNAME;
 
-    $password = PASSWORD;
+    $dbPassword = PASSWORD;
 
-    $link = mysqli_connect("localhost", $username, $password, $username);
+    $link = mysqli_connect("localhost", $dbUsername, $dbPassword, $dbUsername);
 
     if(mysqli_connect_errno()){
         
