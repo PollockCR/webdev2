@@ -40,20 +40,16 @@
         }
         
         // encrypt password
-        $query = "SELECT id FROM users WHERE email = '" . mysqli_real_escape_string($link, $_POST["email"]) ."' LIMIT 1";
         
-        $result = mysqli_query($link, $query);
+        $id = mysqli_insert_id($link);
+        
+        $password = password_hash("q#W46^QM".$id.$_POST["password"], PASSWORD_DEFAULT);
 
-        if ($result->num_rows != 0){
-            
-            $row = mysqli_fetch_row($result);
-    
-            $password = password_hash("q#W46^QM".$row[0].$_POST["password"], PASSWORD_DEFAULT);
-            
-            $query = "UPDATE users SET password = '".$password."' WHERE id = '".$row["0"]."'";
-
-            $result = mysqli_query($link, $query);
-            
+        $query = "UPDATE users SET password = '".$password."' WHERE id = '".$id."'";
+        
+        if(!mysqli_query($link, $query)){
+            echo "Could not encrypt password.";
+            exit();
         }
 
         print_r($_POST);
