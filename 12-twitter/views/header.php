@@ -52,14 +52,15 @@
                             </div>
                             <form id="signupForm" method="post">
                                 <div class="modal-body">
+                                    <div class="alert alert-danger" id="signupAlert" role="alert"></div>
                                     <div class="form-group">
                                         <label for="signupEmail">Email address</label>
-                                        <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                        <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Enter email" >
 
                                     </div>
                                     <div class="form-group">
                                         <label for="signupPassword">Password</label>
-                                        <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
+                                        <input type="password" class="form-control" id="signupPassword" placeholder="Password" >
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -87,16 +88,16 @@
                                 </button>
                             </div>
                             <form id="loginForm" method="post">
-
                                 <div class="modal-body">
+                                    <div class="alert alert-danger" id="loginAlert" role="alert"></div>
                                     <div class="form-group">
                                         <label for="loginEmail">Email address</label>
-                                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
 
                                     </div>
                                     <div class="form-group">
                                         <label for="loginPassword">Password</label>
-                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

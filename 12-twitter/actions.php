@@ -29,7 +29,7 @@
             exit();
         }
         
-        echo "Welcome, user!";
+        echo "1";
                
     }
 
@@ -53,9 +53,7 @@
         // create new user
         $query = "INSERT INTO users (`email`, `password`) VALUES ('" . mysqli_real_escape_string($link, $_POST["email"]) ."', '" . mysqli_real_escape_string($link, $_POST["password"]) ."')";
         
-        if(mysqli_query($link, $query)){
-            echo "Welcome, new user.";
-        } else {
+        if(!mysqli_query($link, $query)){
             echo "Could not create user.";
             exit();
         }
@@ -74,6 +72,8 @@
             echo "Could not encrypt password.";
             exit();
         }
+        
+        echo "1";
         
     }
 

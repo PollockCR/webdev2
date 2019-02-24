@@ -1,2 +1,11 @@
-.footer {
+#signupAlert{
+    
+    display: none;
+    
+}
+
+#loginAlert{
+    
+    display: none;
+    
 }
