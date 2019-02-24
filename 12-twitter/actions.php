@@ -4,15 +4,38 @@
 
     include("functions.php");
 
+    // login
     if($_GET["action"] == "login"){
         
         if(!validate()){
             exit();
         }
-        print_r($_POST);
         
+        // check for user
+        $query = "SELECT * FROM users WHERE email = '" . mysqli_real_escape_string($link, $_POST["email"]) ."' LIMIT 1";
+        $result = mysqli_query($link, $query);
+        if(mysqli_num_rows($result) == 0){
+            $error = "That email address could not be found.";
+            echo $error;
+            exit();
+        }
+        
+        $row = mysqli_fetch_assoc($result);
+        if($row){
+            $id = $row["id"];
+            $saltedPassword = "q#W46^QM".$id.mysqli_real_escape_string($link, $_POST["password"]);
+            if(!password_verify($saltedPassword, $row["password"])){
+                $error = "Incorrect email and password combination.";
+                echo $error;
+                exit();
+            }
+        }
+        
+        echo "Welcome, user!";
+               
     }
 
+    // sign up
     else if($_GET["action"] == "signup"){
                 
         // vaildate user
@@ -43,7 +66,9 @@
         
         $id = mysqli_insert_id($link);
         
-        $password = password_hash("q#W46^QM".$id.$_POST["password"], PASSWORD_DEFAULT);
+        $enteredPassword = mysqli_real_escape_string($link, $_POST["password"]);
+        
+        $password = password_hash("q#W46^QM".$id.$enteredPassword, PASSWORD_DEFAULT);
 
         $query = "UPDATE users SET password = '".$password."' WHERE id = '".$id."'";
         
@@ -51,8 +76,6 @@
             echo "Could not encrypt password.";
             exit();
         }
-
-        print_r($_POST);
         
     }
 
