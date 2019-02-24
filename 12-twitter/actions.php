@@ -21,14 +21,12 @@
         }
         
         $row = mysqli_fetch_assoc($result);
-        if($row){
-            $id = $row["id"];
-            $saltedPassword = "q#W46^QM".$id.mysqli_real_escape_string($link, $_POST["password"]);
-            if(!password_verify($saltedPassword, $row["password"])){
-                $error = "Incorrect email and password combination.";
-                echo $error;
-                exit();
-            }
+        $id = $row["id"];
+        $saltedPassword = "q#W46^QM".$id.mysqli_real_escape_string($link, $_POST["password"]);
+        if(!password_verify($saltedPassword, $row["password"])){
+            $error = "Incorrect email and password combination.";
+            echo $error;
+            exit();
         }
         
         echo "Welcome, user!";
