@@ -1,4 +1,11 @@
 <!doctype html>
+
+<?php
+
+session_start();
+
+?>
+
 <html lang="en" class="h-100">
     <head>
         <!-- Required meta tags -->
@@ -33,14 +40,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?page=publicprofiles">Public profiles</a>
                     </li>
-                </ul>
 
+                </ul>
+                
+                <?php if(isset($_SESSION["id"])){ ?>
+                
+                <!-- Button trigger logout -->
+                <button type="button" class="btn btn-primary" id="logoutButton">
+                    Log out
+                </button>
+                
+                <?php } else { ?>
+                
                 <!-- Button trigger sign up modal -->
-                <button type="button" class="btn btn-secondary mr-3" data-toggle="modal" data-target="#signupModal">
+                <button type="button" class="btn btn-secondary mr-3" data-toggle="modal" data-target="#signupModal" id="signupButton">
                     Sign up
                 </button>
 
-                <!-- Modal -->
+                <!-- Button trigger login modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" id="loginButton">
+                    Log in
+                </button>
+                
+                <?php } ?>
+                
+                <!-- Sign up Modal -->
                 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -72,12 +96,7 @@
                     </div>
                 </div>
 
-                <!-- Button trigger login modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                    Log in
-                </button>
-
-                <!-- Modal -->
+                <!-- Log in Modal -->
                 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -108,5 +127,6 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </nav>

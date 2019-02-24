@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     $error = "";
 
     include("functions.php");
@@ -28,9 +30,11 @@
             echo $error;
             exit();
         }
+                
+        $_SESSION["id"] = $id;
         
         echo "1";
-               
+            
     }
 
     // sign up
@@ -72,6 +76,8 @@
             echo "Could not encrypt password.";
             exit();
         }
+        
+        $_SESSION["id"] = $id;
         
         echo "1";
         
