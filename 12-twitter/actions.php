@@ -24,6 +24,7 @@
         
         $row = mysqli_fetch_assoc($result);
         $id = $row["id"];
+        $_SESSION["id"] = $id;
         $saltedPassword = "q#W46^QM".$id.mysqli_real_escape_string($link, $_POST["password"]);
         if(!password_verify($saltedPassword, $row["password"])){
             $error = "Incorrect email and password combination.";
@@ -31,8 +32,6 @@
             exit();
         }
                 
-        $_SESSION["id"] = $id;
-        
         echo "1";
             
     }
@@ -65,6 +64,7 @@
         // encrypt password
         
         $id = mysqli_insert_id($link);
+        $_SESSION["id"] = $id;
         
         $enteredPassword = mysqli_real_escape_string($link, $_POST["password"]);
         
@@ -76,8 +76,6 @@
             echo "Could not encrypt password.";
             exit();
         }
-        
-        $_SESSION["id"] = $id;
         
         echo "1";
         
