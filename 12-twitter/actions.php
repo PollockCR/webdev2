@@ -65,7 +65,6 @@
         
         $id = mysqli_insert_id($link);
         $_SESSION["id"] = $id;
-        
         $enteredPassword = mysqli_real_escape_string($link, $_POST["password"]);
         
         $password = password_hash("q#W46^QM".$id.$enteredPassword, PASSWORD_DEFAULT);
