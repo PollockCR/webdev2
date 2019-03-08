@@ -1,20 +1,24 @@
 <?php 
 
-    session_start();
+session_start();
 
-    include("secrets.php");
+include("secrets.php");
 
-    $dbUsername = USERNAME;
+$dbUsername = USERNAME;
 
-    $dbPassword = PASSWORD;
+$dbPassword = PASSWORD;
 
-    $link = mysqli_connect("localhost", $dbUsername, $dbPassword, $dbUsername);
+$link = mysqli_connect("localhost", $dbUsername, $dbPassword, $dbUsername);
 
-    if(mysqli_connect_errno()){
-        
-        print_r(mysqli_connect_error());
-        exit;
-        
-    }
+if(mysqli_connect_errno()){
+
+    print_r(mysqli_connect_error());
+    exit;
+
+}
+
+if(isset($_GET["action"]) && $_GET["action"] == "logout"){
+    session_unset();
+}
 
 ?>

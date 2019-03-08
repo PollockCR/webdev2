@@ -40,9 +40,9 @@
                 <?php if(isset($_SESSION["id"])){ ?>
                 
                 <!-- Button trigger logout -->
-                <button type="button" class="btn btn-primary" id="logoutButton">
+                <a class="btn btn-primary" id="logoutButton" href="?action=logout">
                     Log out
-                </button>
+                </a>
                 
                 <?php } else { ?>
                 
