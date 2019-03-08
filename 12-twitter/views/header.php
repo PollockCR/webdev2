@@ -1,9 +1,3 @@
-<?php
-
-session_start();
-
-?>
-
 <!doctype html>
 
 <html lang="en" class="h-100">
@@ -53,12 +47,12 @@ session_start();
                 <?php } else { ?>
                 
                 <!-- Button trigger sign up modal -->
-                <button type="button" class="btn btn-secondary mr-3" data-toggle="modal" data-target="#signupModal" id="signupButton">
+                <button type="button" class="btn btn-secondary mr-3" data-toggle="modal" data-target="#signupModal">
                     Sign up
                 </button>
 
                 <!-- Button trigger login modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" id="loginButton">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
                     Log in
                 </button>
                 
@@ -121,7 +115,7 @@ session_start();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" class="btn btn-primary" value="Log in">
+                                    <input type="submit" class="btn btn-primary" id="loginButton" value="Log in">
                                 </div>
                             </form>
                         </div>

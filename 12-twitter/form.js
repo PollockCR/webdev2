@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#loginForm").submit(function (event) {
-
+        
         $.ajax({
             type: "POST",
             url: "actions.php?action=login",
@@ -9,10 +9,12 @@ $(document).ready(function(){
                 if(result != "1"){
                     $("#loginAlert").html(result).show();
                     event.preventDefault();
-                }
+                } 
             }
 
         });
+
+        return true;
 
     });
 
