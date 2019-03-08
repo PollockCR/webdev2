@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $("#loginForm").submit(function (event) {
         
+        event.preventDefault();
+        
         $.ajax({
             type: "POST",
             url: "actions.php?action=login",
@@ -8,8 +10,9 @@ $(document).ready(function(){
             success: function(result) {
                 if(result != "1"){
                     $("#loginAlert").html(result).show();
-                    event.preventDefault();
-                } 
+                } else {
+                    window.location.assign("http://catherinepollock.com/12-twitter/");
+                }
             }
 
         });
@@ -19,6 +22,8 @@ $(document).ready(function(){
     });
 
     $("#signupForm").submit(function (event) {
+        
+        event.preventDefault();
 
         $.ajax({
             type: "POST",
@@ -27,11 +32,14 @@ $(document).ready(function(){
             success: function(result) {
                 if(result != "1"){
                     $("#signupAlert").html(result).show();
-                    event.preventDefault();
+                } else {
+                    window.location.assign("http://catherinepollock.com/12-twitter/");
                 }
             }
 
         });
+        
+        return true;
 
     });
 });
