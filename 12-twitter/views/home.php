@@ -1,13 +1,21 @@
-<main role="main" class="flex-shrink-0">
-    <div class="container">
-        <h1 class="mt-5">Hello world!</h1>
-
-        <?php
-        if(isset($_SESSION["id"])){ 
-
-            echo $_SESSION["id"];
-
-        }
-        ?>
+<div class="container pt-5">
+    
+    <div class="row">
+        <div class="col-8">
+            <h2>Recent tweets</h2>
+            
+            <?php display_tweets('public'); ?>
+        
+        </div>
+        <div class="col-4">
+        
+            <?php display_search(); ?>
+            
+            <hr>
+            
+            <?php display_tweet_box(); ?>
+        
+        </div>
     </div>
-</main>
+
+</div>
