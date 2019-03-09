@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $("#loginForm").submit(function (event) {
-        
+
         event.preventDefault();
-        
+
         $.ajax({
             type: "POST",
             url: "actions.php?action=login",
@@ -22,7 +22,7 @@ $(document).ready(function(){
     });
 
     $("#signupForm").submit(function (event) {
-        
+
         event.preventDefault();
 
         $.ajax({
@@ -38,8 +38,30 @@ $(document).ready(function(){
             }
 
         });
-        
+
         return true;
+
+    });
+
+    $(".toggleFollow").click(function (){
+        
+        $thisToggle = $(this);
+
+        $.ajax({
+            type: "POST",
+            url: "actions.php?action=toggleFollow",
+            data: "userId=" + $(this).attr("data-userId"),
+            success: function(result) {
+                if(result == "0"){
+                    // follow successful, change to unfollow
+                    $thisToggle.html("- Unfollow");
+                } else if (result == "1"){
+                    // unfollow successful, change to follow
+                    $thisToggle.html("+ Follow");
+                }
+            }
+
+        });
 
     });
 });

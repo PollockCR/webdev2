@@ -73,9 +73,26 @@ function display_tweets($type){
 
             echo "<small>" . $user["email"] . " | " .time_since(time() - strtotime($row["datetime"])) ."</small><br>"; 
 
-            echo $row["tweet"] . "<br>";
+            echo $row["tweet"];
 
-            echo "<small>Follow</small>";
+            if(isset($_SESSION["id"]) && ($row["userid"] != $_SESSION["id"])){
+
+                $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']) ." AND followee = " . mysqli_real_escape_string($link, $row["userid"]) . " LIMIT 1";
+                $following = mysqli_query($link, $query);
+
+                if(mysqli_num_rows($following) > 0){
+
+                    // if following, show unfollow
+                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>- Unfollow</a></small>";
+
+                } else {
+
+                    // if not following, show follow
+                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>+ Follow</a></small>";
+
+                }
+
+            }
 
             echo "</p>";
 
@@ -96,14 +113,14 @@ function display_search(){
 }
 
 function display_tweet_box(){
-    
+
     if(isset($_SESSION['id']) && $_SESSION['id'] > 0){
         echo '<form>
     <textarea class="form-control mb-2" id="newTweet" rows="3"></textarea>
   <button type="submit" class="btn btn-primary mb-2">Post Tweet</button>
 </form>';
     }
-    
+
 }
 
 ?>

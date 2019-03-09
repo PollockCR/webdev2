@@ -12,28 +12,28 @@ if($_GET["action"] == "login"){
         // check for user
         $query = "SELECT * FROM users WHERE email = '" . mysqli_real_escape_string($link, $_POST["email"]) ."' LIMIT 1";
         $result = mysqli_query($link, $query);
-        
+
         if(mysqli_num_rows($result) == 0){
-            
+
             $error = "That email address could not be found.";
             echo $error;
-            
+
         } else {
 
             $row = mysqli_fetch_assoc($result);
             $id = $row["id"];
             $saltedPassword = "q#W46^QM".$id.mysqli_real_escape_string($link, $_POST["password"]);
-            
+
             if(!password_verify($saltedPassword, $row["password"])){
-                
+
                 $error = "Incorrect email and password combination.";
                 echo $error;
-                
+
             } else {
-                
+
                 $_SESSION["id"] = $id;
                 echo "1";
-                
+
             }
         }
 
@@ -50,20 +50,20 @@ else if($_GET["action"] == "signup"){
         // check for existing user
         $query = "SELECT * FROM users WHERE email = '" . mysqli_real_escape_string($link, $_POST["email"]) ."' LIMIT 1";
         $result = mysqli_query($link, $query);
-        
+
         if(mysqli_num_rows($result) > 0){
             $error = "That email address already exists in the database";
             echo $error;
-            
+
         } else {
 
             // create new user
             $query = "INSERT INTO users (`email`, `password`) VALUES ('" . mysqli_real_escape_string($link, $_POST["email"]) ."', '" . mysqli_real_escape_string($link, $_POST["password"]) ."')";
 
             if(!mysqli_query($link, $query)){
-                
+
                 echo "Could not create user.";
-                
+
             } else {
 
                 // encrypt password
@@ -85,6 +85,35 @@ else if($_GET["action"] == "signup"){
 
             }
 
+        }
+
+    }
+
+} else if($_GET["action"] == "toggleFollow"){
+
+    // if logged in
+    if($_SESSION['id']){
+
+        $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']) ." AND followee = " . mysqli_real_escape_string($link, $_POST['userId']) . " LIMIT 1";
+        $result = mysqli_query($link, $query);
+        
+        // if already following
+        if(mysqli_num_rows($result) > 0){
+            
+            $row = mysqli_fetch_assoc($result);
+            $query = "DELETE FROM followers WHERE id = " . mysqli_real_escape_string($link, $row['id']) . " LIMIT 1";
+            mysqli_query($link, $query);
+            
+            // unfollow successful 
+            echo "1";
+            
+        } else {
+            
+            $query = "INSERT INTO followers (follower, followee) VALUES ('" . mysqli_real_escape_string($link, $_SESSION['id']) . "', '" . mysqli_real_escape_string($link, $_POST['userId']) . "')";
+            mysqli_query($link, $query);
+            
+            // follow successful 
+            echo "0";            
         }
 
     }
