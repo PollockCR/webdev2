@@ -83,12 +83,12 @@ function display_tweets($type){
                 if(mysqli_num_rows($following) > 0){
 
                     // if following, show unfollow
-                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>- Unfollow</a></small>";
+                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>Unfollow</a></small>";
 
                 } else {
 
                     // if not following, show follow
-                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>+ Follow</a></small>";
+                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>Follow</a></small>";
 
                 }
 

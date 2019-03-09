@@ -54,10 +54,10 @@ $(document).ready(function(){
             success: function(result) {
                 if(result == "0"){
                     // follow successful, change to unfollow
-                    $thisToggle.html("- Unfollow");
+                    $thisToggle.html("Unfollow");
                 } else if (result == "1"){
                     // unfollow successful, change to follow
-                    $thisToggle.html("+ Follow");
+                    $thisToggle.html("Follow");
                 }
             }
 
