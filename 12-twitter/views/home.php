@@ -11,8 +11,6 @@
         
             <?php display_search(); ?>
             
-            <hr>
-            
             <?php display_tweet_box(); ?>
         
         </div>

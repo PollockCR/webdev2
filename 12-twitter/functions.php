@@ -115,7 +115,7 @@ function display_search(){
 function display_tweet_box(){
 
     if(isset($_SESSION['id']) && $_SESSION['id'] > 0){
-        echo '<form>
+        echo '<hr><form>
     <textarea class="form-control mb-2" id="newTweet" rows="3"></textarea>
   <button type="submit" class="btn btn-primary mb-2">Post Tweet</button>
 </form>';
