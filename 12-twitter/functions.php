@@ -132,7 +132,9 @@ function display_search(){
 function display_tweet_box(){
 
     if(isset($_SESSION['id']) && $_SESSION['id'] > 0){
-        echo '<hr><div class="alert alert-success" id="tweetSuccess" role="alert"></div>
+        echo '<hr><div class="alert alert-success alert-dismissible fade show" id="tweetSuccess" role="alert">Your tweet was posted successfully <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button></div>
         <div class="alert alert-danger" id="tweetFail" role="alert"></div>
         <form id="postTweetForm">
         <textarea class="form-control mb-2" id="newTweet" rows="3"></textarea>

@@ -78,14 +78,14 @@ $(document).ready(function(){
                 if(result == "1"){
                     
                     $("#newTweet").val("");
-                    $("#tweetSuccess").html("Your tweet was posted successfully").show();
+                    $("#tweetSuccess").show();
                     $("#tweetFail").html("").hide();  
                     var theseTweets = window.location.href.toString() + " #tweets";
                     $("#tweets").load( theseTweets );
                     
                 } else {
 
-                    $("#tweetSuccess").html("").hide();
+                    $("#tweetSuccess").hide();
                     $("#tweetFail").html(result).show();                    
 
                 }
