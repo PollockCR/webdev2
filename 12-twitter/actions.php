@@ -89,31 +89,52 @@ else if($_GET["action"] == "signup"){
 
     }
 
-} else if($_GET["action"] == "toggleFollow"){
+} else if($_GET["action"] == "toggleFollow" && isset($_SESSION['id'])){
 
-    // if logged in
-    if($_SESSION['id']){
+    $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']) ." AND followee = " . mysqli_real_escape_string($link, $_POST['userId']) . " LIMIT 1";
+    $result = mysqli_query($link, $query);
 
-        $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']) ." AND followee = " . mysqli_real_escape_string($link, $_POST['userId']) . " LIMIT 1";
-        $result = mysqli_query($link, $query);
+    // if already following
+    if(mysqli_num_rows($result) > 0){
+
+        $row = mysqli_fetch_assoc($result);
+        $query = "DELETE FROM followers WHERE id = " . mysqli_real_escape_string($link, $row['id']) . " LIMIT 1";
+        mysqli_query($link, $query);
+
+        // unfollow successful 
+        echo "1";
+
+    } else {
+
+        $query = "INSERT INTO followers (follower, followee) VALUES ('" . mysqli_real_escape_string($link, $_SESSION['id']) . "', '" . mysqli_real_escape_string($link, $_POST['userId']) . "')";
+        mysqli_query($link, $query);
+
+        // follow successful 
+        echo "0";            
+    }
+
+} else if($_GET["action"] == "postTweet" && isset($_SESSION["id"])){
+    
+    if(!($_POST["newTweet"])){
+
+        echo "Your tweet is empty.";
+
+    } else if(strlen($_POST["newTweet"]) > 140){
+
+        echo "Your tweet has too many characters (" . strlen($_POST["newTweet"]) . "/140)";
+
+    } else {
+
+        $query = "INSERT INTO tweets (tweet, userid, datetime) VALUES ('" . mysqli_real_escape_string($link, $_POST['newTweet']) . "', '" . mysqli_real_escape_string($link, $_SESSION['id']) . "', '". date("Y-m-d H:i:s") ."')";
         
-        // if already following
-        if(mysqli_num_rows($result) > 0){
+        if(!mysqli_query($link, $query)){
             
-            $row = mysqli_fetch_assoc($result);
-            $query = "DELETE FROM followers WHERE id = " . mysqli_real_escape_string($link, $row['id']) . " LIMIT 1";
-            mysqli_query($link, $query);
-            
-            // unfollow successful 
-            echo "1";
+            echo "An error occured while posting your tweet.";
             
         } else {
             
-            $query = "INSERT INTO followers (follower, followee) VALUES ('" . mysqli_real_escape_string($link, $_SESSION['id']) . "', '" . mysqli_real_escape_string($link, $_POST['userId']) . "')";
-            mysqli_query($link, $query);
+            echo "1";
             
-            // follow successful 
-            echo "0";            
         }
 
     }

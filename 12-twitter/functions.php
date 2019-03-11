@@ -51,14 +51,14 @@ function display_tweets($type){
     global $link;
 
     if($type == "public"){
-        
+
         $whereClause = "";
-        
+
     } else if ($type == "timeline" && isset($_SESSION["id"])){
 
         $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']);
         $result = mysqli_query($link, $query);
-        
+
         $whereClause = "WHERE userid = " . mysqli_real_escape_string($link, $_SESSION['id']);
 
         // if already following
@@ -132,10 +132,12 @@ function display_search(){
 function display_tweet_box(){
 
     if(isset($_SESSION['id']) && $_SESSION['id'] > 0){
-        echo '<hr><form>
-    <textarea class="form-control mb-2" id="newTweet" rows="3"></textarea>
-  <button type="submit" class="btn btn-primary mb-2">Post Tweet</button>
-</form>';
+        echo '<hr><div class="alert alert-success" id="tweetSuccess" role="alert"></div>
+        <div class="alert alert-danger" id="tweetFail" role="alert"></div>
+        <form id="postTweetForm">
+        <textarea class="form-control mb-2" id="newTweet" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary mb-2">Post Tweet</button>
+        </form>';
     }
 
 }

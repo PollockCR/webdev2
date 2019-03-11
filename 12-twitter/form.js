@@ -44,7 +44,7 @@ $(document).ready(function(){
     });
 
     $(".toggleFollow").click(function (){
-        
+
         var id = $(this).attr("data-userId");
 
         $.ajax({
@@ -59,6 +59,32 @@ $(document).ready(function(){
                     // unfollow successful, change to follow
                     $('a[data-userId="' + id + '"]').html("Follow");
                 }
+            }
+
+        });
+
+    });
+
+    $("#postTweetForm").submit(function (event){
+        
+        event.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "actions.php?action=postTweet",
+            data: "newTweet=" + $("#newTweet").val(),
+            success: function(result) {
+
+                if(result == "1"){
+                    
+                    $("#postTweetForm").submit();
+                    
+                } else {
+
+                    $("#tweetFail").html(result).show();                    
+
+                }
+
             }
 
         });

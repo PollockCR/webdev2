@@ -19,3 +19,15 @@
     margin: 5px 0px;
     
 }
+
+#tweetFail{
+    
+    display: none;
+    
+}
+
+#tweetSuccess{
+    
+    display: none;
+    
+}
