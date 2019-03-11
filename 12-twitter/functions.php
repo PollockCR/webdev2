@@ -50,8 +50,24 @@ function display_tweets($type){
 
     global $link;
 
-    if($type == 'public'){
+    if($type == "public"){
+        
         $whereClause = "";
+        
+    } else if ($type == "timeline" && isset($_SESSION["id"])){
+
+        $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']);
+        $result = mysqli_query($link, $query);
+        
+        $whereClause = "WHERE userid = " . mysqli_real_escape_string($link, $_SESSION['id']);
+
+        // if already following
+        while($row = mysqli_fetch_assoc($result)){
+
+            $whereClause .= " OR userid = ". $row["followee"];
+
+        }
+
     }
 
     $query = "SELECT * FROM tweets " . $whereClause . " ORDER BY `datetime` DESC LIMIT 20";
@@ -71,7 +87,7 @@ function display_tweets($type){
             $user = mysqli_fetch_assoc($userQueryResult);
 
             echo "<p class='tweet'>";
-            
+
             echo "<small>" . $user["email"] . " | " . time_since(strtotime($row["datetime"])) ."</small><br>"; 
 
             echo $row["tweet"];

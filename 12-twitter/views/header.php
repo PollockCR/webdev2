@@ -11,25 +11,22 @@
 
         <link rel="stylesheet" href="./style.css">
 
-        <title>Wannabe Twitter</title>
+        <title>Twitter</title>
     </head>
     <body class="d-flex flex-column h-100">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="http://catherinepollock.com/12-twitter/">Twitter</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="http://catherinepollock.com/12-twitter/">Wannabe Twitter<span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=timeline">Timeline</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?=page=yourtweets">Your tweets</a>
+                        <a class="nav-link" href="?page=yourtweets">Your tweets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=publicprofiles">Public profiles</a>
