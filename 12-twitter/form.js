@@ -77,10 +77,13 @@ $(document).ready(function(){
 
                 if(result == "1"){
                     
-                    $("#postTweetForm").submit();
+                    $("#newTweet").val("");
+                    $("#tweetSuccess").html("Your tweet was posted successfully").show();
+                    $("#tweetFail").html("").hide();                    
                     
                 } else {
 
+                    $("#tweetSuccess").html("").hide();
                     $("#tweetFail").html(result).show();                    
 
                 }
