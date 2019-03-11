@@ -53,8 +53,14 @@ function display_tweets($type){
     if($type == "public"){
 
         $whereClause = "";
+        
+    } else if(!isset($_SESSION["id"])){
 
-    } else if ($type == "timeline" && isset($_SESSION["id"])){
+        echo "<p>Please log in or sign up to view this page</p>";
+        
+        return;
+        
+    } else if($type == "timeline"){
 
         $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']);
         $result = mysqli_query($link, $query);
@@ -68,6 +74,10 @@ function display_tweets($type){
 
         }
 
+    } else if($type = "yourTweets"){
+        
+        $whereClause = "WHERE userid = " . mysqli_real_escape_string($link, $_SESSION['id']);
+        
     }
 
     $query = "SELECT * FROM tweets " . $whereClause . " ORDER BY `datetime` DESC LIMIT 20";

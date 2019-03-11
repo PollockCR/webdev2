@@ -2,9 +2,9 @@
     
     <div class="row">
         <div class="col-8">
-            <h2>Timeline</h2>
+            <h2>Your tweets</h2>
             
-            <div id="tweets"><?php display_tweets("timeline"); ?></div>
+            <div id="tweets"><?php display_tweets("yourTweets"); ?></div>
         
         </div>
         <div class="col-4">
