@@ -4,7 +4,7 @@
         <div class="col-8">
             <h2>Recent tweets</h2>
             
-            <?php display_tweets('public'); ?>
+            <div id="tweets"><?php display_tweets('public'); ?></div>
         
         </div>
         <div class="col-4">

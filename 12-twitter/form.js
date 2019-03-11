@@ -79,7 +79,9 @@ $(document).ready(function(){
                     
                     $("#newTweet").val("");
                     $("#tweetSuccess").html("Your tweet was posted successfully").show();
-                    $("#tweetFail").html("").hide();                    
+                    $("#tweetFail").html("").hide();  
+                    var theseTweets = window.location.href.toString() + " #tweets";
+                    $("#tweets").load( theseTweets );
                     
                 } else {
 

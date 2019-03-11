@@ -4,7 +4,7 @@
         <div class="col-8">
             <h2>Your timeline</h2>
             
-            <?php display_tweets("timeline"); ?>
+            <div id="#tweets"><?php display_tweets("timeline"); ?></div>
         
         </div>
         <div class="col-4">
