@@ -4,6 +4,8 @@ session_start();
 
 include("secrets.php");
 
+date_default_timezone_set('America/Los_Angeles');
+
 $dbUsername = USERNAME;
 
 $dbPassword = PASSWORD;
@@ -21,28 +23,27 @@ if(isset($_GET["action"]) && $_GET["action"] == "logout"){
     session_unset();
 }
 
-function time_since($since) {
-    $chunks = array(
-        array(60 * 60 * 24 * 365 , 'year'),
-        array(60 * 60 * 24 * 30 , 'month'),
-        array(60 * 60 * 24 * 7, 'week'),
-        array(60 * 60 * 24 , 'day'),
-        array(60 * 60 , 'hour'),
-        array(60 , 'minute'),
-        array(1 , 'second')
+function time_since ($time)
+{
+
+    $time = time() - $time; // to get the time since that moment
+    $time = ($time<1)? 1 : $time;
+    $tokens = array (
+        31536000 => 'year',
+        2592000 => 'month',
+        604800 => 'week',
+        86400 => 'day',
+        3600 => 'hour',
+        60 => 'minute',
+        1 => 'second'
     );
 
-    for ($i = 0, $j = count($chunks); $i < $j; $i++) {
-        $seconds = $chunks[$i][0];
-        $name = $chunks[$i][1];
-        if (($count = floor($since / $seconds)) != 0) {
-            break;
-        }
+    foreach ($tokens as $unit => $text) {
+        if ($time < $unit) continue;
+        $numberOfUnits = floor($time / $unit);
+        return $numberOfUnits.' '.$text.(($numberOfUnits>1)?'s':'')." ago";
     }
 
-    $print = ($count == 1) ? '1 '.$name : "$count {$name}s";
-    $print .= " ago";
-    return $print;
 }
 
 function display_tweets($type){
@@ -70,8 +71,8 @@ function display_tweets($type){
             $user = mysqli_fetch_assoc($userQueryResult);
 
             echo "<p class='tweet'>";
-
-            echo "<small>" . $user["email"] . " | " .time_since(time() - strtotime($row["datetime"])) ."</small><br>"; 
+            
+            echo "<small>" . $user["email"] . " | " . time_since(strtotime($row["datetime"])) ."</small><br>"; 
 
             echo $row["tweet"];
 

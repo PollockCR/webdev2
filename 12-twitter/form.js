@@ -45,19 +45,19 @@ $(document).ready(function(){
 
     $(".toggleFollow").click(function (){
         
-        $thisToggle = $(this);
+        var id = $(this).attr("data-userId");
 
         $.ajax({
             type: "POST",
             url: "actions.php?action=toggleFollow",
-            data: "userId=" + $(this).attr("data-userId"),
+            data: "userId=" + id,
             success: function(result) {
                 if(result == "0"){
                     // follow successful, change to unfollow
-                    $thisToggle.html("Unfollow");
+                    $('a[data-userId="' + id + '"]').html("Unfollow");
                 } else if (result == "1"){
                     // unfollow successful, change to follow
-                    $thisToggle.html("Follow");
+                    $('a[data-userId="' + id + '"]').html("Follow");
                 }
             }
 
