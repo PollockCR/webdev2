@@ -131,8 +131,8 @@ function display_search(){
 
     echo '<form class="form-inline">
     <div class="form-group">
-  <input type="text" class="form-control mr-2" id="search" placeholder="Search tweets">
-
+    <input type="hidden" name="page" value="search">
+  <input type="text" name="q" class="form-control mr-2" id="search" placeholder="Search tweets">
   <button type="submit" class="btn btn-primary">Search</button>
   </div>
 </form>';
