@@ -53,17 +53,36 @@ function display_tweets($type){
     if($type == "public"){
 
         $whereClause = "";
-        
+
     } else if($type == "search"){
-        
+
         $whereClause = "WHERE tweet LIKE '%" . mysqli_real_escape_string($link, $_GET["q"]) . "%'";
-        
+
+    } else if(is_numeric($type)){
+
+        $userQuery = "SELECT * FROM users WHERE id = " . mysqli_real_escape_string($link, $type) . " LIMIT 1";
+        $userQueryResult = mysqli_query($link, $userQuery);
+
+        if(mysqli_num_rows($userQueryResult) == 0){
+            
+            echo "<p>That user could not be found</p>";
+
+        } else {
+            
+            $user = mysqli_fetch_assoc($userQueryResult);
+
+            echo "<h2>Tweets from " . $user["email"] . "</h2>";
+
+        }
+
+        $whereClause = "WHERE userid = " . mysqli_real_escape_string($link, $type);
+
     } else if(!isset($_SESSION["id"])){
 
         echo "<p>Please log in or sign up to view this page</p>";
-        
+
         return;
-        
+
     } else if($type == "timeline"){
 
         $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']);
@@ -79,9 +98,9 @@ function display_tweets($type){
         }
 
     } else if($type == "yourTweets"){
-        
+
         $whereClause = "WHERE userid = " . mysqli_real_escape_string($link, $_SESSION['id']);
-        
+
     } 
 
     $query = "SELECT * FROM tweets " . $whereClause . " ORDER BY `datetime` DESC LIMIT 20";
@@ -156,6 +175,29 @@ function display_tweet_box(){
         </form>';
     }
 
+}
+
+function display_users(){
+
+    global $link;
+
+    $query = "SELECT * FROM users LIMIT 20";
+
+    $result = mysqli_query($link, $query);
+
+    if(mysqli_num_rows($result) == 0){
+
+        echo "There are no users to display";
+
+    } else {
+
+        while($row = mysqli_fetch_assoc($result)){
+
+            echo '<p class="user"><a href="?page=profiles&userid=' . $row["id"] . '">' . $row["email"] . '</a></p>';
+
+        }
+
+    }
 }
 
 ?>

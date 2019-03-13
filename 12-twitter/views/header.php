@@ -29,7 +29,7 @@
                         <a class="nav-link" href="?page=yourtweets">Your tweets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=publicprofiles">Public profiles</a>
+                        <a class="nav-link" href="?page=profiles">Profiles</a>
                     </li>
 
                 </ul>

@@ -16,6 +16,10 @@ if($_GET["page"] == "timeline"){
     
     include("views/search.php");
 
+}  else if($_GET["page"] == "profiles"){
+    
+    include("views/profiles.php");
+
 } else {
 
     include("views/home.php");
