@@ -121,7 +121,7 @@ function display_tweets($type){
 
             echo "<p class='tweet'>";
 
-            echo "<small>" . $user["email"] . " | " . time_since(strtotime($row["datetime"])) ."</small><br>"; 
+            echo "<small><a href='?page=profiles&userid=" . mysqli_real_escape_string($link, $row["userid"]) . "'>" . $user["email"] . "</a> | " . time_since(strtotime($row["datetime"])) ."</small><br>"; 
 
             echo $row["tweet"];
 
