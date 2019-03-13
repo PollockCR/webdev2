@@ -54,6 +54,10 @@ function display_tweets($type){
 
         $whereClause = "";
         
+    } else if($type == "search"){
+        
+        $whereClause = "WHERE tweet LIKE '%" . mysqli_real_escape_string($link, $_GET["q"]) . "%'";
+        
     } else if(!isset($_SESSION["id"])){
 
         echo "<p>Please log in or sign up to view this page</p>";
@@ -74,11 +78,11 @@ function display_tweets($type){
 
         }
 
-    } else if($type = "yourTweets"){
+    } else if($type == "yourTweets"){
         
         $whereClause = "WHERE userid = " . mysqli_real_escape_string($link, $_SESSION['id']);
         
-    }
+    } 
 
     $query = "SELECT * FROM tweets " . $whereClause . " ORDER BY `datetime` DESC LIMIT 20";
 
