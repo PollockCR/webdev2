@@ -139,6 +139,28 @@ else if($_GET["action"] == "signup"){
 
     }
 
+} else if($_GET["action"] == "deleteTweet" && isset($_SESSION["id"])){
+    
+    if(!$_POST["tweetId"]){
+        
+        echo "Invalid tweet";
+        
+    } else {
+        
+        $query = "DELETE FROM tweets WHERE id = " . mysqli_real_escape_string($link, $_POST["tweetId"]) . " LIMIT 1";
+        
+        if(mysqli_query($link, $query)){
+            
+            echo "1";
+            
+        } else {
+            
+            echo "An error occured while deleting your tweet.";
+            
+        }
+        
+    }
+    
 }
 
 function validate(){

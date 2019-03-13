@@ -31,3 +31,15 @@
     display: none;
     
 }
+
+#deleteFail{
+    
+    display: none;
+    
+}
+
+#deleteSuccess{
+    
+    display: none;
+    
+}

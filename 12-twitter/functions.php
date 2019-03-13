@@ -64,11 +64,11 @@ function display_tweets($type){
         $userQueryResult = mysqli_query($link, $userQuery);
 
         if(mysqli_num_rows($userQueryResult) == 0){
-            
+
             echo "<p>That user could not be found</p>";
 
         } else {
-            
+
             $user = mysqli_fetch_assoc($userQueryResult);
 
             echo "<h2>Tweets from " . $user["email"] . "</h2>";
@@ -112,6 +112,11 @@ function display_tweets($type){
         echo "There are no tweets to display";
 
     } else {
+        
+        echo '<div class="alert alert-success alert-dismissible fade show" id="deleteSuccess" role="alert">Your tweet was deleted successfully <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button></div><div class="alert alert-danger" id="deleteFail" role="alert"></div>';
+            
 
         while($row = mysqli_fetch_assoc($result)){
 
@@ -125,21 +130,30 @@ function display_tweets($type){
 
             echo $row["tweet"];
 
-            if(isset($_SESSION["id"]) && ($row["userid"] != $_SESSION["id"])){
+            if(isset($_SESSION["id"])){
 
-                $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']) ." AND followee = " . mysqli_real_escape_string($link, $row["userid"]) . " LIMIT 1";
-                $following = mysqli_query($link, $query);
+                if ($row["userid"] != $_SESSION["id"]){
 
-                if(mysqli_num_rows($following) > 0){
+                    $query = "SELECT * FROM followers WHERE follower = " . mysqli_real_escape_string($link, $_SESSION['id']) ." AND followee = " . mysqli_real_escape_string($link, $row["userid"]) . " LIMIT 1";
+                    $following = mysqli_query($link, $query);
 
-                    // if following, show unfollow
-                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>Unfollow</a></small>";
+                    if(mysqli_num_rows($following) > 0){
+
+                        // if following, show unfollow
+                        echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>Unfollow</a></small>";
+
+                    } else {
+
+                        // if not following, show follow
+                        echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>Follow</a></small>";
+
+                    }
 
                 } else {
-
-                    // if not following, show follow
-                    echo "<br><small><a href='#' class='toggleFollow' data-userId='".$row["userid"]."'>Follow</a></small>";
-
+                    
+                    // own tweet, show delete
+                    echo "<br><small><a href='#' class='deleteLink' data-tweetId='".$row["id"]."'>Delete</a></small>";
+                    
                 }
 
             }

@@ -95,4 +95,37 @@ $(document).ready(function(){
         });
 
     });
+    
+    $(".deleteLink").click(function (event){
+        
+        $.ajax({
+            type: "POST",
+            url: "actions.php?action=deleteTweet",
+            data: "tweetId=" + $(this).attr("data-tweetId"),
+            success: function(result) {
+
+                if(result == "1"){
+                    
+                    var theseTweets = window.location.href.toString() + " #tweets";
+                    
+                    $("#tweets").load( theseTweets , function (){
+                        
+                        $("#deleteSuccess").show();
+                        $("#deleteFail").html("").hide();
+                        return;
+                        
+                    });
+                    
+                } else {
+
+                    $("#deleteSuccess").hide();
+                    $("#deleteFail").html(result).show();                    
+
+                }
+
+            }
+
+        });
+
+    });
 });
