@@ -126,7 +126,7 @@ function display_tweets($type){
 
             echo "<small><a href='?page=profiles&userid=" . mysqli_real_escape_string($link, $row["userid"]) . "'>" . $user["email"] . "</a> | " . time_since(strtotime($row["datetime"])) ."</small><br>"; 
 
-            echo mysqli_real_escape_string($link, $row["tweet"]);
+            printf( $row["tweet"]);
 
             if(isset($_SESSION["id"])){
 
