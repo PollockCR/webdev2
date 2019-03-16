@@ -10,7 +10,17 @@
     
 }
 
-.tweet, .user {
+.tweet {
+    
+    border: 0px solid #F8F9FA;
+    background-color: #F8F9FA;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0px;
+    
+}
+
+.user {
     
     border: 0px solid #F8F9FA;
     background-color: #F8F9FA;
@@ -42,4 +52,8 @@
     
     display: none;
     
+}
+
+@page {
+    size: auto;
 }

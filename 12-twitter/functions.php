@@ -113,9 +113,7 @@ function display_tweets($type){
 
     } else {
         
-        echo '<div class="alert alert-success alert-dismissible fade show" id="deleteSuccess" role="alert">Your tweet was deleted successfully <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button></div><div class="alert alert-danger" id="deleteFail" role="alert"></div>';
+        echo '<div class="alert alert-success alert-dismissible fade show" id="deleteSuccess" role="alert">Your tweet was deleted successfully <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="alert alert-danger" id="deleteFail" role="alert"></div>';
             
 
         while($row = mysqli_fetch_assoc($result)){
@@ -124,11 +122,11 @@ function display_tweets($type){
             $userQueryResult = mysqli_query($link, $userQuery);
             $user = mysqli_fetch_assoc($userQueryResult);
 
-            echo "<p class='tweet'>";
+            echo "<div class='tweet'>";
 
             echo "<small><a href='?page=profiles&userid=" . mysqli_real_escape_string($link, $row["userid"]) . "'>" . $user["email"] . "</a> | " . time_since(strtotime($row["datetime"])) ."</small><br>"; 
 
-            echo $row["tweet"];
+            echo mysqli_real_escape_string($link, $row["tweet"]);
 
             if(isset($_SESSION["id"])){
 
@@ -158,7 +156,7 @@ function display_tweets($type){
 
             }
 
-            echo "</p>";
+            echo "</div>";
 
         }
     }
